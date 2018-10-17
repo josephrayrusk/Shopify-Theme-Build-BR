@@ -67,6 +67,12 @@
       </span>
     </span>
     <p class="grid-link__title">{{ product_title }}</p>
+    {% if product.metafields.c_f.country %}
+      <h3 class="country_meta">{{ product.metafields.c_f.country }}</h3>
+    {% endif %}
+    {% if product.metafields.c_f.flavornotes %}
+      <h4 class="tasting-meta">{{ product.metafields.c_f.flavornotes }}</h4>
+    {% endif %}
     {% if section.settings.vendor_enable %}
       <p class="grid-link__title grid-link__vendor">{{ featured.vendor }}</p>
     {% endif %}

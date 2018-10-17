@@ -252,13 +252,16 @@ $breakpoint-has-push:  ('medium', 'medium-down', 'large', 'post-large', 'wide');
 $breakpoint-has-pull:  ('medium', 'medium-down', 'large', 'post-large', 'wide');
 
 /*================ Color variables ================*/
-$colorPrimary: {{ settings.color_primary }};
+$colorPrimary: #008c95;
+$transparent: rgba(255, 255, 255, .1);
 
 // Button colors
-$colorBtnPrimary: $colorPrimary;
+$colorBtnBorder: $colorPrimary;
+$colorBtnPrimary: $transparent;
 $colorBtnPrimaryHover: lighten($colorBtnPrimary, 10%);
 $colorBtnPrimaryActive: darken($colorBtnPrimaryHover, 10%);
-$colorBtnPrimaryText: {{ settings.color_button_primary_text }};
+$colorBtnPrimaryText: $colorPrimary;
+$buttonRadius: 50px;
 
 $colorBtnTertiary: {{ settings.color_body_bg }};
 $colorBtnTertiaryHover: $colorPrimary;
@@ -1117,6 +1120,9 @@ html input[disabled] {
   -webkit-appearance: none;
   -moz-appearance: none;
   border-radius: $radius;
+  border-color: $colorBtnBorder;
+  border-width: 2px;
+  border-radius: $buttonRadius !important;
 
   /*================ Set primary button colors - can override later ================*/
   background-color: $colorBtnPrimary;

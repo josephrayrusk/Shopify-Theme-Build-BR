@@ -245,10 +245,11 @@ $breakpoint-has-push:  ('medium', 'medium-down', 'large', 'post-large', 'wide');
 $breakpoint-has-pull:  ('medium', 'medium-down', 'large', 'post-large', 'wide');
 
 /*================ Color variables ================*/
-$colorPrimary: {{ settings.color_primary }};
+$colorPrimary: #008c95;
+$buttonColorPrimary: #fff;
 
 // Button colors
-$colorBtnPrimary: $colorPrimary;
+$colorBtnPrimary: $buttonColorPrimary;
 $colorBtnPrimaryHover: lighten($colorBtnPrimary, 10%);
 $colorBtnPrimaryActive: darken($colorBtnPrimaryHover, 10%);
 $colorBtnPrimaryText: {{ settings.color_button_primary_text }};
@@ -269,7 +270,7 @@ $colorTopBarText: #fff;
 // Backgrounds
 $colorBody: {{ settings.color_body_bg }};
 $colorHeader: transparent;
-$colorTopBar: #008c95;
+$colorTopBar: $colorPrimary;
 $passwordBgImage: '{{ 'password-page-background.jpg' | asset_url }}';
 //$colorTopBarMobile: ;
 
@@ -277,7 +278,7 @@ $passwordBgImage: '{{ 'password-page-background.jpg' | asset_url }}';
 $colorBorder: {{ settings.color_borders }};
 
 // Nav and dropdown link background
-$colorNavText: #008c95;
+$colorNavText: $colorPrimary;
 
 // Site Footer
 $colorFooterBg: {{ settings.color_footer_bg }};
@@ -2615,4 +2616,12 @@ input[type="submit"].password-page__signup-form__submit {
     top: 0;
     width: 100%
   }
+}
+
+.country_meta {
+  text-align: center;
+  margin-block-end: 0px;
+}
+.tasting-meta {
+  text-align: center;
 }
