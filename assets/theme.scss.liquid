@@ -264,12 +264,12 @@ $colorLinkHover: lighten($colorPrimary, 15%);
 
 // Text colors
 $colorTextBody: {{ settings.color_body_text }};
-$colorTopBarText: {{ settings.color_topbar_text }};
+$colorTopBarText: #fff;
 
 // Backgrounds
 $colorBody: {{ settings.color_body_bg }};
 $colorHeader: transparent;
-$colorTopBar: {{ settings.color_topbar_bg }};
+$colorTopBar: #008c95;
 $passwordBgImage: '{{ 'password-page-background.jpg' | asset_url }}';
 //$colorTopBarMobile: ;
 
@@ -277,7 +277,7 @@ $passwordBgImage: '{{ 'password-page-background.jpg' | asset_url }}';
 $colorBorder: {{ settings.color_borders }};
 
 // Nav and dropdown link background
-$colorNavText: {{ settings.color_header_text }};
+$colorNavText: #008c95;
 
 // Site Footer
 $colorFooterBg: {{ settings.color_footer_bg }};
@@ -334,6 +334,7 @@ $accentFontWeight: {{ accent_family.weight }};
 $accentFontWeightBold: {{ accent_family_bold.weight | default: 700 }};
 $accentFontStyle: {{ accent_family.style }};
 $accentFontSize: {{ settings.type_accent_size }};
+$colorTopBarDivider: #000000;
 
 // Header type settings
 {% if settings.type_accent_spacing %}
@@ -1195,6 +1196,7 @@ html, body { background: $colorBody; }
   font-size: .9em;
   line-height: 1.4;
   font-weight: $bodyFontWeightBold;
+  text-align: center;
 }
 
 .grid-link__vendor {
@@ -1206,6 +1208,7 @@ html, body { background: $colorBody; }
   font-size: .75em;
   line-height: 1.5;
   color: lighten($colorTextBody, 10%);
+  text-align: center;
 }
 
 .grid-link__sale_price {
@@ -1305,6 +1308,7 @@ $badgeSize: 60px;
   list-style: none;
   text-align: left;
   margin: 0;
+  text-transform: uppercase;
 
   li {
     margin: 0;
@@ -1314,7 +1318,7 @@ $badgeSize: 60px;
 .mobile-nav__link {
   display: block;
   border-top: 1px solid $colorTopBarText;
-  border-color: rgba($colorTopBarText, 0.2);
+  border-color: rgba($colorTopBarDivider, 0.2);
 
   /*================ Can't always control anchor markup to add a class ================*/
   > a {
