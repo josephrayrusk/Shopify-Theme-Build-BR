@@ -16,7 +16,7 @@
 {% if search-bar == 'header' %}
   <form action="/search" method="get" class="header-bar__search-form clearfix" role="search">
     {% comment %}<input type="hidden" name="type" value="product">{% endcomment %}
-    <button type="submit" class="btn btn--search icon-fallback-text header-bar__search-submit">
+    <button type="submit" class="btn btn--search icon-fallback-text header-bar__search-submit" style="border-width: 0px">
       <span class="icon icon-search" aria-hidden="true"></span>
       <span class="fallback-text">{{ 'general.search.submit' | t }}</span>
     </button>
@@ -27,7 +27,7 @@
     {% comment %}<input type="hidden" name="type" value="product">{% endcomment %}
     <input type="search" name="q" value="{{ search.terms | escape }}" placeholder="{{ 'general.search.placeholder' | t }}" class="input-group-field" aria-label="{{ 'general.search.placeholder' | t }}" placeholder="{{ 'general.search.placeholder' | t }}">
     <span class="input-group-btn">
-      <button type="submit" class="btn btn--search icon-fallback-text">
+      <button type="submit" class="btn btn--search icon-fallback-text" style="border-width: 0px">
         <span class="icon icon-search" aria-hidden="true"></span>
         <span class="fallback-text">{{ 'general.search.submit' | t }}</span>
       </button>
