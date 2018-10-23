@@ -894,9 +894,9 @@ html, body { background: $colorBody; }
   text-align: center;
 
   @include at-query($min, $large) {
-    text-align: right;
-    padding-top: 8px;
-    padding-bottom: 8px;
+    text-align: center;
+    padding-top: 0px;
+    padding-bottom: 0px;
   }
 
   a,
@@ -2624,4 +2624,86 @@ input[type="submit"].password-page__signup-form__submit {
 }
 .tasting-meta {
   text-align: center;
+}
+
+.logo_header {
+  height: 150px;
+  position: absolute;
+}
+.header_wrapper {
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+/*================ 10 Columns ================*/
+/*  SECTIONS  */
+.section {
+	clear: both;
+	padding: 0px;
+	margin: 0px;
+  display: flex;
+}
+
+/*  COLUMN SETUP  */
+.col {
+	display: block;
+	float:left;
+	margin: 1% 0 1% 1.6%;
+}
+.col:first-child { margin-left: 0; }
+
+/*  GROUPING  */
+.group:before,
+.group:after { content:""; display:table; }
+.group:after { clear:both;}
+.group { zoom:1; /* For IE 6/7 */ }
+
+/*  GRID OF TEN  */
+.col-10 {
+	width: 100%;
+}
+
+.col-9  {
+  	width: 89.84%;
+}
+
+.col-8  {
+  	width: 79.68%;
+}
+
+.col-7  {
+  	width: 69.52%;
+}
+
+.col-6  {
+  	width: 59.36%;
+}
+
+.col-5  {
+  	width: 49.2%;
+}
+
+.col-4  {
+  	width: 39.04%;
+}
+
+.col-3  {
+  	width: 28.88%;
+}
+
+.col-2  {
+  	width: 18.72%;
+}
+
+.col-1  {
+  	width: 8.56%;
+}
+
+/*  GO FULL WIDTH BELOW 480 PIXELS */
+@media only screen and (max-width: 480px) {
+	.col {  margin: 1% 0 1% 0%; }
+
+    [class*="col-"] {
+	width: 100%;
+	}
 }

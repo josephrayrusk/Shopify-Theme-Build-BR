@@ -7,22 +7,6 @@
   .logo__image-wrapper {
     max-width: {{ logo_width }}px;
   }
-  /*================= If logo is above navigation ================== */
-  {% if section.settings.nav_below_logo %}
-    .site-nav {
-      {% if section.settings.show_header_lines %}
-        border-top: 1px solid {{ settings.color_borders }};
-        border-bottom: 1px solid {{ settings.color_borders }};
-      {% endif %}
-      margin-top: 30px;
-    }
-
-    {% unless section.settings.left_aligned_logo %}
-      .logo__image-wrapper {
-        margin: 0 auto;
-      }
-    {% endunless %}
-  {% endif %}
 
   /*============ If logo is on the same line as navigation ============ */
   {% unless section.settings.nav_below_logo or section.settings.show_header_lines == false %}
@@ -48,7 +32,7 @@
       <div class="post-large--display-table">
 
         {% if section.settings.show_announcement or section.settings.header_search_enable %}
-          <div class="header-bar__left post-large--display-table-cell">
+          <div class="post-large--display-table-cell">
 
             {% comment %}
               Add social links to header
@@ -70,15 +54,12 @@
                   </a>
                 {% endif %}
               </div>
-            {% elsif section.settings.header_search_enable %}
-              <div class="header-bar__module header-bar__search">
-                {% include 'search-bar' with 'header' %}
-              </div>
             {% endif %}
 
           </div>
         {% endif %}
 
+{%comment %}
         <div class="header-bar__right post-large--display-table-cell">
 
           {% if shop.customer_accounts_enabled %}
@@ -125,6 +106,7 @@
           {% endif %}
 
         </div>
+{% endcomment %}
       </div>
     </div>
 
@@ -156,95 +138,63 @@
     {% include 'mobile-nav' with linklists[section.settings.nav_menu] %}
   </div>
 
-  <header class="site-header" role="banner">
-    <div class="wrapper">
-
-      {% if section.settings.nav_below_logo %}
-        <div class="grid--full">
-          <div class="grid__item">
-            {% if template.name == 'index' %}
-              <h1 class="site-header__logo{% if section.settings.logo == blank %}{% unless section.settings.left_aligned_logo == false and section.settings.nav_below_logo %} post-large--left{% endunless %}{% endif %}" itemscope itemtype="http://schema.org/Organization">
-            {% else %}
-              <div class="h1 site-header__logo{% if section.settings.logo == blank %}{% unless section.settings.left_aligned_logo == false and section.settings.nav_below_logo %} post-large--left{% endunless %}{% endif %}" itemscope itemtype="http://schema.org/Organization">
-            {% endif %}
-              {% if section.settings.logo != blank %}
-                <noscript>
-                  {% capture image_size %}{{ logo_width | escape }}x{% endcapture %}
-                  <div class="logo__image-wrapper">
-                    {{ section.settings.logo | img_url: image_size | img_tag: shop.name }}
-                  </div>
-                </noscript>
-                <div class="logo__image-wrapper supports-js">
-                  <a href="/" itemprop="url" style="padding-top:{{ 1 | divided_by: section.settings.logo.aspect_ratio | times: 100}}%;">
-                    {% assign img_url = section.settings.logo | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
-                    <img class="logo__image lazyload"
-                         src="{{ section.settings.logo | img_url: '300x300' }}"
-                         data-src="{{ img_url }}"
-                         data-widths="[120, 180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 1944, 2048]"
-                         data-aspectratio="{{ section.settings.logo.aspect_ratio }}"
-                         data-sizes="auto"
-                         alt="{{ shop.name | escape }}"
-                         itemprop="logo">
-                  </a>
-                </div>
-              {% else %}
-                <a href="/" itemprop="url">{{ shop.name }}</a>
-              {% endif %}
-            {% if template.name == 'index' %}
-              </h1>
-            {% else %}
-              </div>
-            {% endif %}
+  <header class="site-header mobile-hide" role="banner">
+    <div class="header_wrapper">
+        <div class="section group">
+          <div class="col-2">
+            <div class="dot logo_header">
+              <img src="https://cdn.shopify.com/s/files/1/2013/2883/files/Circle_Logo.png?264756741510547205" alt="">
+            </div>
           </div>
-        </div>
-        <div class="grid--full medium-down--hide">
-          <div class="grid__item">
+<!-- Navigation -->
+          <div class="col-4">
             {% include 'site-nav' with linklists[section.settings.nav_menu] %}
           </div>
-        </div>
-      {% else %}
-        <div class="grid--full post-large--display-table">
-          <div class="grid__item post-large--one-third post-large--display-table-cell">
-            {% if template.name == 'index' %}
-              <h1 class="site-header__logo{% if section.settings.logo == blank %}{% unless section.settings.left_aligned_logo == false and section.settings.nav_below_logo %} post-large--left{% endunless %}{% endif %}" itemscope itemtype="http://schema.org/Organization">
-            {% else %}
-              <div class="h1 site-header__logo{% if section.settings.logo == blank %}{% unless section.settings.left_aligned_logo == false and section.settings.nav_below_logo %} post-large--left{% endunless %}{% endif %}" itemscope itemtype="http://schema.org/Organization">
+<!-- Search and Cart -->
+          <div class="col-4 site-nav" style="text-align: right !important">
+            {% if shop.customer_accounts_enabled %}
+              <ul class="site-nav__link header-bar__module header-bar__module--list">
+                {% if customer %}
+                  <li>
+                    <a href="/account">{{ 'layout.customer.account' | t }}</a>
+                  </li>
+                  <li>
+                    {{ 'layout.customer.log_out' | t | customer_logout_link }}
+                  </li>
+                {% else %}
+                  <li>
+                    {{ 'layout.customer.log_in' | t | customer_login_link }}
+                  </li>
+                  <li>{{ 'layout.customer.or' | t }}</li>
+                  <li>
+                    {{ 'layout.customer.create_account' | t | customer_register_link }}
+                  </li>
+                {% endif %}
+              </ul>
             {% endif %}
-              {% if section.settings.logo != blank %}
-                <noscript>
-                  {% capture image_size %}{{ logo_width | escape }}x{% endcapture %}
-                  <div class="logo__image-wrapper">
-                    {{ section.settings.logo | img_url: image_size | img_tag: shop.name }}
-                  </div>
-                </noscript>
-                <div class="logo__image-wrapper supports-js">
-                  <a href="/" itemprop="url" style="padding-top:{{ 1 | divided_by: section.settings.logo.aspect_ratio | times: 100}}%;">
-                    {% assign img_url = section.settings.logo | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
-                    <img class="logo__image lazyload"
-                         src="{{ section.settings.logo | img_url: '300x300' }}"
-                         data-src="{{ img_url }}"
-                         data-widths="[120, 180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 1944, 2048]"
-                         data-aspectratio="{{ section.settings.logo.aspect_ratio }}"
-                         data-sizes="auto"
-                         alt="{{ shop.name | escape }}"
-                         itemprop="logo">
-                  </a>
-                </div>
-              {% else %}
-                <a href="/" itemprop="url">{{ shop.name }}</a>
-              {% endif %}
-            {% if template.name == 'index' %}
-              </h1>
-            {% else %}
-              </div>
-            {% endif %}
-          </div>
-          <div class="grid__item post-large--two-thirds post-large--display-table-cell medium-down--hide">
-            {% include 'site-nav' with linklists[section.settings.nav_menu] %}
-          </div>
-        </div>
-      {% endif %}
+            <div class="header-bar__module">
+              <span class="header-bar__sep" aria-hidden="true"></span>
+              <a href="/cart" class="cart-page-link">
+                <span class="icon icon-cart header-bar__cart-icon" aria-hidden="true"></span>
+              </a>
+            </div>
 
+            <div class="header-bar__module">
+              <a href="/cart" class="cart-page-link">
+                {{ 'layout.cart.title' | t }}{% unless cart.item_count == 0 %}:{% endunless %}
+                <span class="cart-count header-bar__cart-count{% if cart.item_count == 0 %} hidden-count{% endif %}">{{ cart.item_count }}</span>
+              </a>
+            </div>
+
+            {% if section.settings.header_search_enable %}
+              {% if section.settings.show_announcement %}
+                <div class="header-bar__module header-bar__search">
+                  {% include 'search-bar' with 'header' %}
+                </div>
+              {% endif %}
+            {% endif %}
+          </div>
+        </div>
     </div>
   </header>
 </div>

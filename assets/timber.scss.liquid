@@ -9,6 +9,12 @@
     - The output CSS is compressed and comments are removed
     - This file merges your stylesheets into one master at assets/timber.scss.liquid
 ==============================================================================*/
+* {
+    box-sizing: border-box;
+}
+/*================ Custom Created Colors ================*/
+$headerBackground: #272727;
+$headerTextColor: white;
 
 /*================ Variables, theme settings, and Sass mixins ================*/
 /*================ Global | Sass Mixins ================*/
@@ -286,7 +292,7 @@ $passwordBgImage: '{{ 'password-page-background.jpg' | asset_url }}';
 $colorBorder: {{ settings.color_borders }};
 
 // Nav and dropdown link background
-$colorNavText: {{ settings.color_header_text }};
+$colorNavText: #008c95;
 
 // Site Footer
 $colorFooterBg: {{ settings.color_footer_bg }};
@@ -1084,7 +1090,7 @@ $class-type: unquote(".");
 /*================ Partials | Links and Buttons ================*/
 a,
 .text-link {
-  color: $colorLink;
+  color: $headerTextColor;
   text-decoration: none;
   background: transparent;
 
@@ -2201,17 +2207,21 @@ $socialIconFontStack: "icons";
 
 /*================ Module | Site Header ================*/
 .site-header {
-  padding: 40px 0;
-  background-color: $colorHeader;
+  background-color: $headerBackground;
 
   @include at-query ($min, $large) {
-    padding: $gutter 0;
+  //  padding: $gutter 0;
 
     .post-large--display-table {
       min-height: 86px;
     }
   }
-
+.dot {
+    height: 150px;
+    width: 150px;
+    background-color: $headerBackground;
+    border-radius: 50%;
+  }
   @include at-query ($min, $large) {
     .grid {
       display: table;
@@ -2283,7 +2293,10 @@ $socialIconFontStack: "icons";
   @include accentFontStack;
   cursor: default;
   margin: 0 auto;
-  text-align: center;
+  text-align: left;
+  text-transform: uppercase;
+  margin-top: 30px;
+  margin-bottom: 5px;
 
   li {
     margin: 0;
@@ -2313,10 +2326,11 @@ $socialIconFontStack: "icons";
   display: block;
   text-decoration: none;
   white-space: nowrap;
-  color: $colorNavText;
-  background-color: $colorBody;
+  color: $headerTextColor;
+  background-color: $headerBackground;
   font-weight: $accentFontWeight;
   padding: 7px 20px 7px 15px;
+  text-transform: uppercase;
 
   &:hover,
   &:active,
@@ -2340,6 +2354,9 @@ $socialIconFontStack: "icons";
   }
   .site-nav__dropdown-grandchild & {
     white-space: normal;
+  }
+  @include at-query ($max, $medium) {
+    background-color: inherit;
   }
 }
 
@@ -2814,4 +2831,10 @@ input.cart__quantity-selector {
     top: 0;
     width: 100%
   }
+}
+
+@include at-query ($max, $large) {
+.mobile-hide {
+  display: none;
+}
 }
