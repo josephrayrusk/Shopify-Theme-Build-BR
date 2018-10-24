@@ -2704,7 +2704,7 @@ input[type="submit"].password-page__signup-form__submit {
 
 /*  GO FULL WIDTH BELOW 480 PIXELS */
 
-.col-5 {
+[class*="col-"] {
   @include at-query($max, $medium) {
     width: 100%;
   }
@@ -2735,14 +2735,39 @@ input[type="submit"].password-page__signup-form__submit {
 
 }
 
+.productThumbs {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  @include at-query($min, $medium) {
+    width: 30%;
+  }
+  @include at-query($min, $large) {
+    width: 20%;
+  }
+}
+
+.productImageMain {
+  margin-right: 0px !important;
+}
+
 .coffeeTitle, .tastingNotes, .coffeeOrigin, .coffeePrice {
   text-align: left;
   @include at-query($max, $medium) {
-    text-align: center;
+    text-align: center !important;
   }
 }
 
 .coffeeContent {
   margin-top: auto;
   margin-bottom: auto;
+}
+
+.full-width {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
 }

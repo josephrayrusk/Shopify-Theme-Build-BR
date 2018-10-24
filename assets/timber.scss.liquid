@@ -2842,8 +2842,16 @@ input.cart__quantity-selector {
   }
 }
 
-@include at-query ($max, $large) {
+@include at-query ($max, 2000px) {
 .mobile-hide {
   display: none;
 }
+}
+
+.moreInfo {
+  background-color: $headerBackground;
+  color: $headerTextColor;
+  text-align: center;
+  padding: 10px 10%;
+
 }
