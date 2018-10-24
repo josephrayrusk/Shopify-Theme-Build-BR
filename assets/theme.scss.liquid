@@ -2739,6 +2739,7 @@ input[type="submit"].password-page__signup-form__submit {
   width: 50%;
   margin-left: auto;
   margin-right: auto;
+  display: flex;
   @include at-query($min, $medium) {
     width: 30%;
   }
@@ -2770,4 +2771,10 @@ input[type="submit"].password-page__signup-form__submit {
   right: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
+}
+
+.mobile-hide {
+  @include at-query($max, $medium) {
+    display: none;
+  }
 }

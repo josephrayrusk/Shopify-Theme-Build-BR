@@ -87,7 +87,18 @@
 {% endcomment %}
           </div>
 
-
+          {% if product.images.size > 1 %}
+            <ul class="productThumbs grid product-single__thumbnails" id="ProductThumbs">
+              {% for image in product.images %}
+                <li class="grid__item">
+                  <a data-image-id="{{ image.id }}" href="{{ image.src | img_url: '1024x1024' }}" class="product-single__thumbnail">
+                    <img src="{{ image.src | img_url: 'grande' }}" alt="{{ image.alt | escape }}">
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+          
       </div>
       <div class="col-5 coffeeContent">
         {% if product.metafields.c_f.country %}
@@ -171,9 +182,9 @@
       </div>
     </div>
     <div class="">
-      {% if product.images.size > 1 %}
 
-        <ul class="productThumbs grid product-single__thumbnails" style="display: flex;" id="ProductThumbs">
+      {% if product.images.size > 1 %}
+        <ul class="productThumbs grid product-single__thumbnails mobile-hide" id="ProductThumbs">
           {% for image in product.images %}
             <li class="grid__item">
               <a data-image-id="{{ image.id }}" href="{{ image.src | img_url: '1024x1024' }}" class="product-single__thumbnail">
@@ -182,9 +193,8 @@
             </li>
           {% endfor %}
         </ul>
-
-
       {% endif %}
+
     </div>
     <div class="product-description rte moreInfo full-width" itemprop="description">
       {{ product.description }}
