@@ -35,12 +35,12 @@
   </div>
 
   <div class="product-single">
-    <div class="grid product-single__hero">
-      <div class="grid__item post-large--one-half">
+    <div class="section">
+      <div class="col-5">
 
           <div class="grid">
 
-            <div class="grid__item four-fifths product-single__photos" id="ProductPhoto">
+            <div class="product-single__photos" id="ProductPhoto">
               {% assign featured_image = product.selected_or_first_available_variant.featured_image | default: product.featured_image %}
 
               {% for image in product.images %}
@@ -97,8 +97,14 @@
         {% endif %}
 
       </div>
-      <div class="grid__item post-large--one-half">
-        <h1 itemprop="name">{{ product.title }}</h1>
+      <div class="col-5">
+        {% if product.metafields.c_f.country %}
+          <h4 class="coffeeOrigin">{{ product.metafields.c_f.country }}</h4>
+        {% endif %}
+        <h1 itemprop="name coffeeTitle">{{ product.title }}</h1>
+        {% if product.metafields.c_f.flavornotes %}
+          <h4 class="tastingNotes">{{ product.metafields.c_f.flavornotes }}</h4>
+        {% endif %}
 
         <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
           {% assign variant = product.selected_or_first_available_variant %}

@@ -2641,7 +2641,10 @@ input[type="submit"].password-page__signup-form__submit {
 	clear: both;
 	padding: 0px;
 	margin: 0px;
-  display: flex;
+  display: grid;
+  @include at-query($min, $large) {
+    display: flex;
+  }
 }
 
 /*  COLUMN SETUP  */
@@ -2700,13 +2703,19 @@ input[type="submit"].password-page__signup-form__submit {
 }
 
 /*  GO FULL WIDTH BELOW 480 PIXELS */
-@media only screen and (max-width: 480px) {
-	.col {  margin: 1% 0 1% 0%; }
 
-    [class*="col-"] {
-	width: 100%;
-	}
+.col-5 {
+  @include at-query($max, $medium) {
+    width: 100%;
+  }
 }
+//@media only screen and (max-width: 480px) {
+//	.col {  margin: 1% 0 1% 0%; }
+//
+//    [class*="col-"] {
+//	width: 100%;
+//	}
+//}
 
 /*================ Product Page ================*/
 
@@ -2723,5 +2732,17 @@ input[type="submit"].password-page__signup-form__submit {
 }
 
 .coffeePrice {
-  
+
+}
+
+.coffeeTitle, .tastingNotes, .coffeeOrigin, .coffeePrice {
+  text-align: left;
+  @include at-query($max, $medium) {
+    text-align: center;
+  }
+}
+
+.coffeeContent {
+  margin-top: auto;
+  margin-bottom: auto;
 }
