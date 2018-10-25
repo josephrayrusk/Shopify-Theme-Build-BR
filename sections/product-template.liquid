@@ -148,10 +148,13 @@
           {%- endif -%}
           <div class="">
             {% if product.metafields.c_f.roastDate %}
-              <h4 class="metaInfo"><span style="font-weight: 900">farm: </span>{{ product.metafields.c_f.roastDate }}</h4>
+              <h4 class="metaInfo"><span style="font-weight: 900">roast date: </span>{{ product.metafields.c_f.roastDate }}</h4>
             {% endif %}
             {% if product.metafields.c_f.farm %}
               <h4 class="metaInfo"><span style="font-weight: 900">farm: </span>{{ product.metafields.c_f.farm }}</h4>
+            {% endif %}
+            {% if product.metafields.c_f.mill %}
+              <h4 class="metaInfo"><span style="font-weight: 900">mill: </span>{{ product.metafields.c_f.mill }}</h4>
             {% endif %}
             {% if product.metafields.c_f.lot %}
               <h4 class="metaInfo"><span style="font-weight: 900">lot: </span>{{ product.metafields.c_f.lot }}</h4>
@@ -159,8 +162,14 @@
             {% if product.metafields.c_f.producer %}
               <h4 class="metaInfo"><span style="font-weight: 900">producer: </span>{{ product.metafields.c_f.producer }}</h4>
             {% endif %}
+            {% if product.metafields.c_f.region %}
+              <h4 class="metaInfo"><span style="font-weight: 900">region: </span>{{ product.metafields.c_f.region }}</h4>
+            {% endif %}
             {% if product.metafields.c_f.altitude %}
-              <h4 class="metaInfo"><span style="font-weight: 900">altitude: </span>{{ product.metafields.c_f.altitude }}</h4>
+              <h4 class="metaInfo"><span style="font-weight: 900">altitude: </span>{{ product.metafields.c_f.altitude }} MASL</h4>
+            {% endif %}
+            {% if product.metafields.c_f.roast %}
+              <h4 class="metaInfo"><span style="font-weight: 900">roast level: </span>{{ product.metafields.c_f.roast }} MASL</h4>
             {% endif %}
             {% if product.metafields.c_f.process %}
               <h4 class="metaInfo"><span style="font-weight: 900">process: </span>{{ product.metafields.c_f.process }}</h4>
@@ -222,6 +231,7 @@
 {% endcomment %}
 
     </div>
+    <h4 class="metaInfo text-center" style="font-weight: 900;">More Information</h4>
     <div class="product-description rte moreInfo full-width" itemprop="description">
       {{ product.description }}
     </div>
