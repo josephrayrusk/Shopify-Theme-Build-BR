@@ -1806,6 +1806,9 @@ $socialIconFontStack: "icons";
   color: $colorTextBody;
   font-size: .75em;
   text-align: right;
+  @include at-query($max, $medium) {
+    text-align: center;
+  }
 
   a,
   span {
@@ -2840,12 +2843,6 @@ input.cart__quantity-selector {
     top: 0;
     width: 100%
   }
-}
-
-@include at-query ($max, 2000px) {
-.mobile-hide {
-  display: none;
-}
 }
 
 .moreInfo {

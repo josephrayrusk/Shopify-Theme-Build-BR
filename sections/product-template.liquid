@@ -29,11 +29,10 @@
 
   <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
   <meta itemprop="image" content="{{ product.featured_image.src | img_url: 'grande' }}">
-
   <div class="section-header section-header--breadcrumb">
     {% include 'breadcrumb' %}
   </div>
-
+  <div class="mobile-hide" style="height: 100px;"></div>
   <div class="product-single">
     <div class="section">
       <div class="col-5">
@@ -88,7 +87,7 @@
           </div>
 
           {% if product.images.size > 1 %}
-            <ul class="productThumbs grid product-single__thumbnails" id="ProductThumbs">
+            <ul class="productThumbs grid product-single__thumbnails post-large--hide" id="ProductThumbs">
               {% for image in product.images %}
                 <li class="grid__item">
                   <a data-image-id="{{ image.id }}" href="{{ image.src | img_url: '1024x1024' }}" class="product-single__thumbnail">
@@ -98,7 +97,10 @@
               {% endfor %}
             </ul>
           {% endif %}
-          
+
+      </div>
+      <div class="col">
+
       </div>
       <div class="col-5 coffeeContent">
         {% if product.metafields.c_f.country %}
@@ -117,7 +119,7 @@
 
           <div class="coffeePrice product-single__prices{% if shop.taxes_included or shop.shipping_policy.body != blank %} product-single__prices--policy-enabled{% endif %}">
             <span id="PriceA11y" class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>
-            <span id="ProductPrice" class="product-single__price" itemprop="price" content="{{ product.price | divided_by: 100.00 }}">
+            <span id="ProductPrice" class="coffeePrice product-single__price" itemprop="price" content="{{ product.price | divided_by: 100.00 }}">
               {{ product.price | money }}
             </span>
 
@@ -144,7 +146,29 @@
               {%- endif -%}
             </div>
           {%- endif -%}
-
+          <div class="">
+            {% if product.metafields.c_f.roastDate %}
+              <h4 class="metaInfo"><span style="font-weight: 900">farm: </span>{{ product.metafields.c_f.roastDate }}</h4>
+            {% endif %}
+            {% if product.metafields.c_f.farm %}
+              <h4 class="metaInfo"><span style="font-weight: 900">farm: </span>{{ product.metafields.c_f.farm }}</h4>
+            {% endif %}
+            {% if product.metafields.c_f.lot %}
+              <h4 class="metaInfo"><span style="font-weight: 900">lot: </span>{{ product.metafields.c_f.lot }}</h4>
+            {% endif %}
+            {% if product.metafields.c_f.producer %}
+              <h4 class="metaInfo"><span style="font-weight: 900">producer: </span>{{ product.metafields.c_f.producer }}</h4>
+            {% endif %}
+            {% if product.metafields.c_f.altitude %}
+              <h4 class="metaInfo"><span style="font-weight: 900">altitude: </span>{{ product.metafields.c_f.altitude }}</h4>
+            {% endif %}
+            {% if product.metafields.c_f.process %}
+              <h4 class="metaInfo"><span style="font-weight: 900">process: </span>{{ product.metafields.c_f.process }}</h4>
+            {% endif %}
+            {% if product.metafields.c_f.varietal %}
+              <h4 class="metaInfo"><span style="font-weight: 900">varietal: </span>{{ product.metafields.c_f.varietal }}</h4>
+            {% endif %}
+        </div>
           {% form 'product', product, class:productform_class %}
             <select name="id" id="ProductSelect-{{ section.id }}" class="product-single__variants">
               {% for variant in product.variants %}
@@ -183,6 +207,7 @@
     </div>
     <div class="">
 
+{% comment %}
       {% if product.images.size > 1 %}
         <ul class="productThumbs grid product-single__thumbnails mobile-hide" id="ProductThumbs">
           {% for image in product.images %}
@@ -194,6 +219,7 @@
           {% endfor %}
         </ul>
       {% endif %}
+{% endcomment %}
 
     </div>
     <div class="product-description rte moreInfo full-width" itemprop="description">

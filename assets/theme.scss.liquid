@@ -2641,7 +2641,6 @@ input[type="submit"].password-page__signup-form__submit {
 	clear: both;
 	padding: 0px;
 	margin: 0px;
-  display: grid;
   @include at-query($min, $large) {
     display: flex;
   }
@@ -2720,19 +2719,80 @@ input[type="submit"].password-page__signup-form__submit {
 /*================ Product Page ================*/
 
 .coffeeTitle {
+  font-family: balboa-plus-fill, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  text-transform: uppercase;
+  font-size: 7vw;
+  line-height: 6vw;
+  margin-bottom: -10px;
 
+  @include at-query($max, $medium) {
+    font-size: 75px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    line-height: 75px;
+  }
 }
 
 .tastingNotes {
+  font-family: rift-soft, sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 1.7vw;
+  margin: 0px;
 
+  @include at-query($max, $medium) {
+    font-size: 30px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    line-height: 30px;
+  }
 }
 
 .coffeeOrigin {
+  font-family: rift-soft, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 2.3vw;
+  margin: 0px;
 
+  @include at-query($max, $medium) {
+    font-size: 30px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    line-height: 30px;
+  }
 }
 
 .coffeePrice {
+  font-family: balboa-plus-fill, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 2vw;
 
+  @include at-query($max, $medium) {
+    font-size: 40px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    line-height: 40px;
+  }
+}
+
+.metaInfo {
+  font-family: benton-sans, sans-serif;
+  font-weight: 250;
+  font-style: normal;
+  font-size: 1.3vw;
+  text-transform: capitalize;
+  margin-bottom: 0px;
+
+  @include at-query($max, $medium) {
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    line-height: 20px;
+  }
 }
 
 .productThumbs {
@@ -2777,4 +2837,8 @@ input[type="submit"].password-page__signup-form__submit {
   @include at-query($max, $medium) {
     display: none;
   }
+}
+
+.text-center {
+  text-align: center;
 }
