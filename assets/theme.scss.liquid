@@ -2793,6 +2793,9 @@ input[type="submit"].password-page__signup-form__submit {
     margin-bottom: 10px;
     line-height: 20px;
   }
+  span {
+    font-weight: 900;
+  }
 }
 
 .productThumbs {
@@ -2825,6 +2828,8 @@ input[type="submit"].password-page__signup-form__submit {
 }
 
 .full-width {
+  @include at-query($min, $medium) {
+
   width: 100vw;
   position: relative;
   left: 50%;
@@ -2832,10 +2837,35 @@ input[type="submit"].password-page__signup-form__submit {
   margin-left: -50vw;
   margin-right: -50vw;
 }
+}
 
 .mobile-hide {
   @include at-query($max, $medium) {
     display: none;
+  }
+}
+.scol-1 {
+  width: 33.33%;
+  @include at-query($max, 1280px) {
+    display: none;
+  }
+}
+.scol-2 {
+  width: 33.33%;
+  @include at-query($max, 1280px) {
+    width: 50%;
+  }
+  @include at-query($max, $medium) {
+    width: 100%;
+  }
+}
+.scol-3 {
+  width: 33.33%;
+  @include at-query($max, 1280px) {
+    width: 50%;
+  }
+  @include at-query($max, $medium) {
+    width: 100%;
   }
 }
 

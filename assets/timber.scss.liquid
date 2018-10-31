@@ -2233,6 +2233,7 @@ $socialIconFontStack: "icons";
     width: 150px;
     background-color: $headerBackground;
     border-radius: 50%;
+    z-index: 1000;
   }
   @include at-query ($min, $large) {
     .grid {
@@ -2851,4 +2852,48 @@ input.cart__quantity-selector {
   text-align: center;
   padding: 10px 10%;
 
+}
+
+$specialtyHeight: 80vh;
+$minSpecialtyHeight: 600px;
+
+.specialtyCoffee-Container {
+  @include at-query($min, 770px) {
+    margin-top:-63px !important;
+    height: $specialtyHeight;
+    min-height: $minSpecialtyHeight;
+  }
+}
+
+.specialtyCoffee-Meta {
+  margin-top: auto;
+  margin-bottom: auto;
+  padding-left: 30px;
+  color: white;
+  text-align: right;
+  margin-left: auto;
+}
+.specialtyBackground:before {
+  content: ' ';
+  border-top: $specialtyHeight solid #008c95;
+  border-right: 33vw solid transparent;
+  z-index: 0;
+  width: 0;
+  position: absolute;
+  @include at-query($max, $medium) {
+    border-top: 63vh solid #008c95;
+    border-right: 100vw solid transparent;
+    left: 0px;
+    top: 100px;
+  }
+}
+
+.centerImage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.blueBlackground {
+  background-color: #008c95;
 }
