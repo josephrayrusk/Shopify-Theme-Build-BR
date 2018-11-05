@@ -2,7 +2,9 @@
   Minimal | A theme by Shopify
   Built on Timber v2.0.0
 ==============================================================================*/
-
+.admin-bar__page {
+  display: none;
+}
 /*================ Variables, theme settings, and Sass mixins from Timber ================*/
 /*================ Global | Sass Mixins ================*/
 @mixin clearfix() {
@@ -2799,15 +2801,15 @@ input[type="submit"].password-page__signup-form__submit {
 }
 
 .productThumbs {
-  width: 50%;
   margin-left: auto;
   margin-right: auto;
-  display: flex;
   @include at-query($min, $medium) {
     width: 30%;
+    display: flex;
   }
   @include at-query($min, $large) {
     width: 20%;
+    display: flex;
   }
 }
 
@@ -2871,4 +2873,7 @@ input[type="submit"].password-page__signup-form__submit {
 
 .text-center {
   text-align: center;
+}
+.continentMap {
+  width: 100%;
 }

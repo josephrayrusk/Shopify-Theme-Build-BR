@@ -2683,6 +2683,7 @@ input.cart__quantity-selector {
 
 .product-single__photos {
   margin-bottom: $gutter;
+  padding-left: 15px;
 }
 
 .product-single__photos,
@@ -2723,6 +2724,9 @@ input.cart__quantity-selector {
 
 .product-single__thumbnails li {
   margin-bottom: $gutter;
+  width: 20%;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 .product-single__prices {
@@ -2874,6 +2878,7 @@ $minSpecialtyHeight: 600px;
   margin-left: auto;
 }
 .specialtyBackground:before {
+
   content: ' ';
   border-top: $specialtyHeight solid #008c95;
   border-right: 33vw solid transparent;
@@ -2881,10 +2886,7 @@ $minSpecialtyHeight: 600px;
   width: 0;
   position: absolute;
   @include at-query($max, $medium) {
-    border-top: 63vh solid #008c95;
-    border-right: 100vw solid transparent;
-    left: 0px;
-    top: 100px;
+    display: none;
   }
 }
 

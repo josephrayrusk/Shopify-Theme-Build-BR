@@ -87,9 +87,9 @@
           </div>
 
           {% if product.images.size > 1 %}
-            <ul class="productThumbs grid product-single__thumbnails post-large--hide" id="ProductThumbs">
+            <ul style="display: flex; justify-content: center;"class="productThumbs grid product-single__thumbnails post-large--hide" id="ProductThumbs">
               {% for image in product.images %}
-                <li class="grid__item">
+                <li class="">
                   <a data-image-id="{{ image.id }}" href="{{ image.src | img_url: '1024x1024' }}" class="product-single__thumbnail">
                     <img src="{{ image.src | img_url: 'grande' }}" alt="{{ image.alt | escape }}">
                   </a>
