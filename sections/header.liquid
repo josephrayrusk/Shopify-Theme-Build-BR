@@ -128,7 +128,12 @@
           {{ 'layout.navigation.menu' | t }}
         </button>
       {% endunless %}
-      <a href="https://www.birdrockcoffee.com/"><img src="https://cdn.shopify.com/s/files/1/2013/2883/files/BRCR_Logo.png?17798832675206188071" alt=""></a>
+<!--      <a href="https://www.birdrockcoffee.com/"><img src="https://cdn.shopify.com/s/files/1/2013/2883/files/BRCR_Logo.png?17798832675206188071" alt=""></a> -->
+
+        <a href="https://www.birdrockcoffee.com/">
+        <img class="mobileDot" src="https://cdn.shopify.com/s/files/1/2013/2883/files/Circle_Logo.png?264756741510547205" alt="">
+      </a>
+
       <a href="/cart" class="cart-page-link mobile-cart-page-link">
         <span class="icon icon-cart header-bar__cart-icon" aria-hidden="true"></span>
         {{ 'layout.cart.title' | t }} <span class="cart-count{% if cart.item_count == 0 %} hidden-count{% endif %}">{{ cart.item_count }}</span>

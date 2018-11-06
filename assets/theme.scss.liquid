@@ -839,10 +839,13 @@ h6 {
 }
 
 .main-content {
-  margin-top: $gutter / 2;
+  margin-top: 47px;
 
   .template-index & {
      margin-top: 0;
+  }
+  @include at-query($min, $medium) {
+    margin-top: 15px;
   }
 }
 
@@ -889,7 +892,7 @@ html, body { background: $colorBody; }
   font-size: em(14px);
   font-weight: $accentFontWeight;
   font-style: $accentFontStyle;
-  background-color: $colorTopBar;
+  background-color: #272727;
   color: $colorTopBarText;
   padding-top: 2px;
   padding-bottom: 2px;
@@ -899,6 +902,7 @@ html, body { background: $colorBody; }
     text-align: center;
     padding-top: 0px;
     padding-bottom: 0px;
+    height: inherit;
   }
 
   a,
@@ -2840,7 +2844,23 @@ input[type="submit"].password-page__signup-form__submit {
   margin-right: -50vw;
 }
 }
-
+.full-width-about {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+.full-width-img {
+  max-width: none !important;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
 .mobile-hide {
   @include at-query($max, $medium) {
     display: none;
@@ -2876,4 +2896,21 @@ input[type="submit"].password-page__signup-form__submit {
 }
 .continentMap {
   width: 100%;
+}
+.altit_img {
+  width: 80%;
+}
+
+.coffee_graphics {
+  margin-bottom: 20px;
+  @include at-query($max, $medium) {
+    display: flex;
+  }
+}
+
+.coffee_graphics_col {
+  width: 30%;
+  @include at-query($max, $medium) {
+    width: 50%;
+  }
 }

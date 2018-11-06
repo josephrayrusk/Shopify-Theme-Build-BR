@@ -29,15 +29,48 @@
 
   <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
   <meta itemprop="image" content="{{ product.featured_image.src | img_url: 'grande' }}">
-  <div class="section-header section-header--breadcrumb">
-    {% include 'breadcrumb' %}
-  </div>
-  <div class="mobile-hide" style="height: 100px;"></div>
-  <div class="product-single">
-    <div class="section">
-      <div class="col-5">
+  <div class="product-single full-width">
+    <div class="section-header section-header--breadcrumb">
+      {% include 'breadcrumb' %}
+    </div>
+    <div class="section specialtyCoffee-Container">
+      <div class="scol-1 blueBlackground section small-desk-hide">
+        <div class="specialtyCoffee-Meta">
+          {% if product.metafields.c_f.roastDate %}
+            <h4 class="metaInfo"><span>roast date: </span>{{ product.metafields.c_f.roastDate }}</h4>
+          {% endif %}
+          {% if product.metafields.c_f.farm %}
+            <h4 class="metaInfo"><span>farm: </span>{{ product.metafields.c_f.farm }}</h4>
+          {% endif %}
+          {% if product.metafields.c_f.mill %}
+            <h4 class="metaInfo"><span>mill: </span>{{ product.metafields.c_f.mill }}</h4>
+          {% endif %}
+          {% if product.metafields.c_f.lot %}
+            <h4 class="metaInfo"><span>lot: </span>{{ product.metafields.c_f.lot }}</h4>
+          {% endif %}
+          {% if product.metafields.c_f.producer %}
+            <h4 class="metaInfo"><span>producer: </span>{{ product.metafields.c_f.producer }}</h4>
+          {% endif %}
+          {% if product.metafields.c_f.region %}
+            <h4 class="metaInfo"><span>region: </span>{{ product.metafields.c_f.region }}</h4>
+          {% endif %}
+          {% if product.metafields.c_f.altitude %}
+            <h4 class="metaInfo"><span>altitude: </span>{{ product.metafields.c_f.altitude }} MASL</h4>
+          {% endif %}
+          {% if product.metafields.c_f.roast %}
+            <h4 class="metaInfo"><span>roast level: </span>{{ product.metafields.c_f.roast }} MASL</h4>
+          {% endif %}
+          {% if product.metafields.c_f.process %}
+            <h4 class="metaInfo"><span>process: </span>{{ product.metafields.c_f.process }}</h4>
+          {% endif %}
+          {% if product.metafields.c_f.varietal %}
+            <h4 class="metaInfo"><span>varietal: </span>{{ product.metafields.c_f.varietal }}</h4>
+          {% endif %}
+      </div>
+      </div>
+      <div class="scol-2 specialtyBackground centerImage">
 
-          <div class="grid">
+          <div class="">
 
             <div class="product-single__photos" id="ProductPhoto">
               {% assign featured_image = product.selected_or_first_available_variant.featured_image | default: product.featured_image %}
@@ -46,9 +79,9 @@
                 {% capture img_id %}ProductImage-{{ image.id }}{% endcapture %}
                 {% capture img_wrapper_id %}ProductImageWrapper-{{ image.id }}{% endcapture %}
                 {%- assign img_url = image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
-                {% include 'image-style' with image: image, small_style: false, width: 800, height: 1024, wrapper_id: img_wrapper_id, img_id: img_id %}
+                {% include 'image-style' with image: image, small_style: false, width: 800 , height: 1024, wrapper_id: img_wrapper_id, img_id: img_id %}
 
-                <div id="{{ img_wrapper_id }}" class="productImageMain product-single__image-wrapper supports-js{% unless featured_image == image %} hide{% endunless %}{% if section.settings.product_image_zoom_type == 'lightbox' %} zoom-lightbox{% endif %}" data-image-id="{{ image.id }}">
+                <div id="{{ img_wrapper_id }}" class="product-single__image-wrapper supports-js{% unless featured_image == image %} hide{% endunless %}{% if section.settings.product_image_zoom_type == 'lightbox' %} zoom-lightbox{% endif %}" data-image-id="{{ image.id }}">
                   <div style="padding-top:{{ 1 | divided_by: image.aspect_ratio | times: 100}}%;">
                     <img id="{{ img_id }}"
                          class="product-single__image lazyload{% unless featured_image == image %} lazypreload{% endunless %}"
@@ -99,10 +132,7 @@
           {% endif %}
 
       </div>
-      <div class="col">
-
-      </div>
-      <div class="col-5 coffeeContent">
+      <div class="scol-3 coffeeContent">
         {% if product.metafields.c_f.country %}
           <h4 class="coffeeOrigin">{{ product.metafields.c_f.country }}</h4>
         {% endif %}
@@ -146,38 +176,6 @@
               {%- endif -%}
             </div>
           {%- endif -%}
-          <div class="">
-            {% if product.metafields.c_f.roastDate %}
-              <h4 class="metaInfo"><span>roast date: </span>{{ product.metafields.c_f.roastDate }}</h4>
-            {% endif %}
-            {% if product.metafields.c_f.farm %}
-              <h4 class="metaInfo"><span>farm: </span>{{ product.metafields.c_f.farm }}</h4>
-            {% endif %}
-            {% if product.metafields.c_f.mill %}
-              <h4 class="metaInfo"><span>mill: </span>{{ product.metafields.c_f.mill }}</h4>
-            {% endif %}
-            {% if product.metafields.c_f.lot %}
-              <h4 class="metaInfo"><span>lot: </span>{{ product.metafields.c_f.lot }}</h4>
-            {% endif %}
-            {% if product.metafields.c_f.producer %}
-              <h4 class="metaInfo"><span>producer: </span>{{ product.metafields.c_f.producer }}</h4>
-            {% endif %}
-            {% if product.metafields.c_f.region %}
-              <h4 class="metaInfo"><span>region: </span>{{ product.metafields.c_f.region }}</h4>
-            {% endif %}
-            {% if product.metafields.c_f.altitude %}
-              <h4 class="metaInfo"><span>altitude: </span>{{ product.metafields.c_f.altitude }} MASL</h4>
-            {% endif %}
-            {% if product.metafields.c_f.roast %}
-              <h4 class="metaInfo"><span>roast level: </span>{{ product.metafields.c_f.roast }} MASL</h4>
-            {% endif %}
-            {% if product.metafields.c_f.process %}
-              <h4 class="metaInfo"><span>process: </span>{{ product.metafields.c_f.process }}</h4>
-            {% endif %}
-            {% if product.metafields.c_f.varietal %}
-              <h4 class="metaInfo"><span>varietal: </span>{{ product.metafields.c_f.varietal }}</h4>
-            {% endif %}
-        </div>
           {% form 'product', product, class:productform_class %}
             <select name="id" id="ProductSelect-{{ section.id }}" class="product-single__variants">
               {% for variant in product.variants %}
@@ -213,6 +211,7 @@
           {% endif %}
         </div>
       </div>
+      </div>
     </div>
     <div class="">
 
@@ -229,11 +228,10 @@
         </ul>
       {% endif %}
 {% endcomment %}
-
-    </div>
-    <h4 class="metaInfo text-center" style="font-weight: 900;">More Information</h4>
-    <div class="product-description rte moreInfo full-width" itemprop="description">
-      {{ product.description }}
+<h4 class="metaInfo text-center" style="font-weight: 900;">More Information</h4>
+<div class="product-description rte" itemprop="description">
+  {{ product.description }}
+</div>
     </div>
   </div>
 

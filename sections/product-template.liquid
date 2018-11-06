@@ -147,6 +147,16 @@
             </div>
           {%- endif -%}
           <div class="">
+            <div class="section coffee_graphics">
+              <div class="coffee_graphics_col">
+                {% include 'altitude' %}
+              </div>
+              <div class="col">
+              </div>
+              <div class="coffee_graphics_col">
+                {% include 'roast' %}
+              </div>
+          </div>
             {% if product.metafields.c_f.roastDate %}
               <h4 class="metaInfo"><span>roast date: </span>{{ product.metafields.c_f.roastDate }}</h4>
             {% endif %}
@@ -164,12 +174,6 @@
             {% endif %}
             {% if product.metafields.c_f.region %}
               <h4 class="metaInfo"><span>region: </span>{{ product.metafields.c_f.region }}</h4>
-            {% endif %}
-            {% if product.metafields.c_f.altitude %}
-              <h4 class="metaInfo"><span>altitude: </span>{{ product.metafields.c_f.altitude }} MASL</h4>
-            {% endif %}
-            {% if product.metafields.c_f.roast %}
-              <h4 class="metaInfo"><span>roast level: </span>{{ product.metafields.c_f.roast }} MASL</h4>
             {% endif %}
             {% if product.metafields.c_f.process %}
               <h4 class="metaInfo"><span>process: </span>{{ product.metafields.c_f.process }}</h4>
@@ -192,6 +196,7 @@
                 {% endif %}
               {% endfor %}
             </select>
+            <div class="bold_options" data-product-id="{{ product.id }}"></div>
 
             <div class="product-single__quantity{% unless section.settings.product_quantity_enable %} is-hidden{% endunless %}">
               <label for="Quantity">{{ 'products.product.quantity' | t }}</label>
@@ -232,10 +237,10 @@
 
     </div>
     <h4 class="metaInfo text-center" style="font-weight: 900;">More Information</h4>
-    <div class="product-description rte moreInfo full-width" itemprop="description">
+    <div class="product-description rte moreInfo full-width-about" itemprop="description">
       {{ product.description }}
     </div>
-{% include 'coffeemap' %}
+<img class="full-width-img" src="{{ product.metafields.c_f.continent }}" alt="Coffee Location">
     {% if section.settings.product_related_enable %}
       {% include 'related-products' %}
     {% endif %}

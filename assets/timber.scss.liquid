@@ -424,7 +424,7 @@ body {
 
 .main-content {
   display: block;
-  margin-top: $gutter * 2;
+  margin-top: 47px;
   padding-bottom: $gutter * 2;
 }
 
@@ -1472,7 +1472,8 @@ select {
           appearance: none;
   background-position: right center;
   background: {
-    image: url('{{ "ico-select.svg" | asset_url }}');
+    image: url('https://cdn.shopify.com/s/files/1/2013/2883/files/Blue_Arrow.svg?10113417246790720899');
+//    image: url('{{ "ico-select.svg" | asset_url }}');
     repeat: no-repeat;
     position: right 10px center;
     color: #fff;
@@ -2249,7 +2250,16 @@ $socialIconFontStack: "icons";
     }
   }
 }
-
+.mobileDot {
+  height: 75px;
+  width: 75px;
+  background-color: $headerBackground;
+  border-radius: 50%;
+  z-index: 1000;
+  margin-left: -69px;
+  margin-top: -10px;
+  position: absolute;
+}
 .site-header__logo {
   text-align: center;
   margin: 0 auto;
@@ -2777,7 +2787,12 @@ input.cart__quantity-selector {
 @include at-query($min, $large) {
   .single-option-selector,
   .quantity-selector {
-    width: auto !important;
+    width: 30%;
+    background-color: white;
+    color: $headerBackground;
+    border-radius: 5px;
+    border-width: 2px;
+    border-color: $headerBackground;
   }
 }
 
