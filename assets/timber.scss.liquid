@@ -267,7 +267,7 @@ $colorBtnPrimary: $transparent;
 $colorBtnPrimaryHover: lighten($colorBtnPrimary, 10%);
 $colorBtnPrimaryActive: darken($colorBtnPrimaryHover, 10%);
 $colorBtnPrimaryText: $colorPrimary;
-$buttonRadius: 50px;
+$buttonRadius: 5px;
 
 $colorBtnTertiary: {{ settings.color_body_bg }};
 $colorBtnTertiaryHover: $colorPrimary;
@@ -1134,13 +1134,13 @@ html input[disabled] {
   -webkit-appearance: none;
   -moz-appearance: none;
   border-radius: $radius;
-  border-color: $colorBtnBorder;
+  border-color: $headerBackground;
   border-width: 2px;
   border-radius: $buttonRadius !important;
 
   /*================ Set primary button colors - can override later ================*/
   background-color: $colorBtnPrimary;
-  color: $colorBtnPrimaryText;
+  color: $headerBackground;
 
   &:hover {
     background-color: $colorBtnPrimaryHover;
@@ -1195,7 +1195,7 @@ input.btn--secondary {
 }
 
 .btn--wide {
-  width: 50%;
+  width: 30%;
   @include at-query($max, $medium) {
     width: 100%;
   }
@@ -1436,15 +1436,17 @@ input[type="number"],
 input[type="tel"],
 textarea,
 select {
-  border: 1px solid transparentize($colorTextBody, 0.85);
+  border: 2px solid $headerBackground;
+  border-radius: 5px;
   width: 100%;
   max-width: 100%;
+  min-height: 50px;
   display: block;
   margin: 0 0 1em;
   color: #333;
 
   &:focus {
-    border: 1px solid transparentize($colorTextBody, 0.7);
+    border: 2px solid transparentize($headerBackground, 0.8);
   }
 
   &[disabled],
@@ -1615,7 +1617,7 @@ label.error {
   .input-group-btn:first-child > .btn,
   input[type="hidden"]:first-child + .input-group-field,
   input[type="hidden"]:first-child + .input-group-btn > .btn {
-    border-radius: $radius 0 0 $radius;
+    border-radius: 5px;
   }
 
   .input-group-field:last-child,
@@ -1737,7 +1739,7 @@ $socialIconFontStack: "icons";
 .icon-pinterest:before { content: "\70"; }
 .icon-plus:before { content: "\e605"; }
 .icon-rss:before { content: "\72"; }
-.icon-search:before { content: "\73"; }
+.icon-search:before { content: "\73";}
 .icon-snapchat:before { content: "\e906"; }
 .icon-tumblr:before { content: "\74"; }
 .icon-twitter:before { content: "\54"; }
@@ -2793,6 +2795,7 @@ input.cart__quantity-selector {
     border-radius: 5px;
     border-width: 2px;
     border-color: $headerBackground;
+    min-height: 50px;
   }
 }
 
@@ -2848,9 +2851,13 @@ input.cart__quantity-selector {
 .product__img-wrapper {
   width: 100%;
   margin: 0 auto;
+  transition: transform .2s;
 
   &.supports-js {
     position: relative;
+  }
+  :hover {
+    transform: scale(1.02);
   }
 }
 

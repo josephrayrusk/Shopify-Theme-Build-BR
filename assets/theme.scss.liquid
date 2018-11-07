@@ -5,6 +5,7 @@
 .admin-bar__page {
   display: none;
 }
+$headerBackground: #272727;
 /*================ Variables, theme settings, and Sass mixins from Timber ================*/
 /*================ Global | Sass Mixins ================*/
 @mixin clearfix() {
@@ -1068,7 +1069,7 @@ html, body { background: $colorBody; }
     .header-bar__search-submit {
       width: 35px;
       position: absolute;
-      top: 0;
+      top: 11px;
       left: 0;
     }
 
@@ -1131,6 +1132,9 @@ html, body { background: $colorBody; }
     .grid-link__image {
       opacity: 0.8;
     }
+    .grid-link__title {
+      color: #EDC038;
+    }
   }
 }
 
@@ -1186,8 +1190,8 @@ html, body { background: $colorBody; }
 .grid-link__image-sold-out {
   img {
     .sold-out & {
-      opacity: 0.4;
-      filter: alpha(opacity=40);
+      opacity: 0.5;
+      filter: alpha(opacity=50);
     }
   }
 }
@@ -1195,15 +1199,19 @@ html, body { background: $colorBody; }
 .grid-link__title,
 .grid-link__meta {
   position: relative;
-  margin-bottom: 5px;
+  margin-bottom: 2px;
 }
 
+.grid-link__title, .country_meta {
+  font-family: itc-avant-garde-gothic-pro, sans-serif;
+  font-style: normal;
+}
 .grid-link__title {
-  color: $colorTextBody;
-  font-size: .9em;
-  line-height: 1.4;
-  font-weight: $bodyFontWeightBold;
+  font-weight: 700;
+  color: $headerBackground+E6;
   text-align: center;
+  text-transform: uppercase;
+  font-size: 1.3em;
 }
 
 .grid-link__vendor {
@@ -1246,7 +1254,6 @@ $badgeSize: 60px;
   margin-top: -($badgeSize / 2);
   margin-left: -($badgeSize / 2);
   background-color: $colorBtnPrimary;
-  color: $colorBtnPrimaryText;
 }
 
 .badge--sale {
@@ -1258,6 +1265,7 @@ $badgeSize: 60px;
   display: table-cell;
   vertical-align: middle;
   padding: 2px 8px 0;
+  color: $headerBackground;
 }
 
 .badge__text--small {
@@ -2625,11 +2633,21 @@ input[type="submit"].password-page__signup-form__submit {
 }
 
 .country_meta {
+  font-weight: 300;
   text-align: center;
   margin-block-end: 0px;
+  color: $headerBackground+E6;
+  font-size: 0.8em;
+  line-height: 1.05em;
 }
 .tasting-meta {
+  font-family: neue-haas-grotesk-display, sans-serif;
+  font-weight: 300;
+  font-style: normal;
   text-align: center;
+  color: #35524A;
+  text-transform: lowercase;
+  margin-bottom: 5px;
 }
 
 .logo_header {
@@ -2742,11 +2760,12 @@ input[type="submit"].password-page__signup-form__submit {
 }
 
 .tastingNotes {
-  font-family: rift-soft, sans-serif;
-  font-weight: 300;
+  font-family: neue-haas-grotesk-display, sans-serif;;
+  font-weight: 250;
   font-style: normal;
   font-size: 1.7vw;
   margin: 0px;
+  text-transform: lowercase;
 
   @include at-query($max, $medium) {
     font-size: 30px;
@@ -2757,8 +2776,8 @@ input[type="submit"].password-page__signup-form__submit {
 }
 
 .coffeeOrigin {
-  font-family: rift-soft, sans-serif;
-  font-weight: 400;
+  font-family: neue-haas-grotesk-display, sans-serif;
+  font-weight: 300;
   font-style: normal;
   font-size: 2.3vw;
   margin: 0px;
@@ -2786,8 +2805,8 @@ input[type="submit"].password-page__signup-form__submit {
 }
 
 .metaInfo {
-  font-family: benton-sans, sans-serif;
-  font-weight: 250;
+  font-family: itc-avant-garde-gothic-pro, sans-serif;;
+  font-weight: 300;
   font-style: normal;
   font-size: 1.3vw;
   text-transform: capitalize;
@@ -2800,7 +2819,7 @@ input[type="submit"].password-page__signup-form__submit {
     line-height: 20px;
   }
   span {
-    font-weight: 900;
+    font-weight: 700;
   }
 }
 
@@ -2912,5 +2931,15 @@ input[type="submit"].password-page__signup-form__submit {
   width: 30%;
   @include at-query($max, $medium) {
     width: 50%;
+  }
+}
+
+.collection-container {
+  width: 80%;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  @include at-query($max, $medium) {
+    width: 100%;
   }
 }

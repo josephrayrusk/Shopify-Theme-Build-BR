@@ -66,10 +66,10 @@
         {% endif %}
       </span>
     </span>
-    <p class="grid-link__title">{{ product_title }}</p>
     {% if product.metafields.c_f.country %}
       <h3 class="country_meta">{{ product.metafields.c_f.country }}</h3>
     {% endif %}
+    <h3 class="grid-link__title">{{ product_title }}</h3>
     {% if product.metafields.c_f.flavornotes %}
       <h4 class="tasting-meta">{{ product.metafields.c_f.flavornotes }}</h4>
     {% endif %}
