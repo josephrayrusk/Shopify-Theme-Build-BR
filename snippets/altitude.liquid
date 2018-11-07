@@ -1,3 +1,4 @@
+{% if product.metafields.c_f.g_alt %}
 <div class="">
 {% if product.metafields.c_f.g_alt == 1 %}
 <img src="https://cdn.shopify.com/s/files/1/2013/2883/files/Alt_1.svg?3528756842254518739" alt="{{ product.metafields.c_f.altitude }} MASL">
@@ -19,3 +20,4 @@
 {% endif %}
 <h4 class="metaInfo"><span>alt: </span>{{ product.metafields.c_f.altitude }} MASL</h4>
 </div>
+{% endif %}

@@ -2752,10 +2752,10 @@ input[type="submit"].password-page__signup-form__submit {
   margin-bottom: -10px;
 
   @include at-query($max, $medium) {
-    font-size: 75px;
+    font-size: 19vw;
     margin-top: 5px;
     margin-bottom: 5px;
-    line-height: 75px;
+    line-height: 68px;
   }
 }
 
@@ -2922,7 +2922,6 @@ input[type="submit"].password-page__signup-form__submit {
 }
 
 .coffee_graphics {
-  margin-bottom: 20px;
   @include at-query($max, $medium) {
     display: flex;
   }
@@ -2943,4 +2942,18 @@ input[type="submit"].password-page__signup-form__submit {
   @include at-query($max, $medium) {
     width: 100%;
   }
+}
+
+hr {
+    display: block;
+    width: 57%;
+    height: 2px;
+    border: 0;
+    border-top: 2px solid $headerBackground;
+    margin: 8px 1em;
+    padding: 0;
+    @include at-query($max, $medium) {
+      width: 100%;
+      margin: 1em auto;
+    }
 }

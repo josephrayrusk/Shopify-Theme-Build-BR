@@ -156,7 +156,8 @@
               <div class="coffee_graphics_col">
                 {% include 'roast' %}
               </div>
-          </div>
+            </div>
+          <hr/>
             {% if product.metafields.c_f.roastDate %}
               <h4 class="metaInfo"><span>roast date: </span>{{ product.metafields.c_f.roastDate }}</h4>
             {% endif %}
@@ -240,7 +241,9 @@
     <div class="product-description rte moreInfo full-width-about" itemprop="description">
       {{ product.description }}
     </div>
+{% if product.metafields.c_f.continent %}
 <img class="full-width-img" src="{{ product.metafields.c_f.continent }}" alt="Coffee Location">
+{% endif %}
     {% if section.settings.product_related_enable %}
       {% include 'related-products' %}
     {% endif %}
