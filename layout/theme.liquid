@@ -76,7 +76,7 @@
 
   {% include 'oldIE-js' %}
 
-  {{ 'jquery-2.2.3.min.js' | asset_url | script_tag }}
+  <script src="{{ 'jquery-2.2.3.min.js' | asset_url }}" async></script>
 
   <!--[if (gt IE 9)|!(IE)]><!--><script src="{{ 'lazysizes.min.js' | asset_url }}" async="async"></script><!--<![endif]-->
   <!--[if lte IE 9]><script src="{{ 'lazysizes.min.js' | asset_url }}"></script><![endif]-->
@@ -101,7 +101,9 @@
         </div>
     </div>
   </main>
-
+{% if template == 'index' %}
+<div class="elfsight-sapp-1a8a53b0-ca39-11e7-964e-63614231607f"></div>
+{% endif %}
   {% section 'footer' %}
 
   {% if template.name == 'product' or template.name == 'index' %}

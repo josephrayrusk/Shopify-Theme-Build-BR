@@ -148,9 +148,9 @@ $max: max-width;
 
 @mixin accentFontStack {
   font-size: em($accentFontSize);
-  font-family: $accentFontStack;
-  font-weight: $accentFontWeight;
-  font-style: $accentFontStyle;
+  font-family: itc-avant-garde-gothic-pro, sans-serif;
+  font-weight: 500;
+  font-style: normal;
   @if $typeAccentSpacing {
     letter-spacing: 0.1em;
   }
@@ -2387,6 +2387,7 @@ $socialIconFontStack: "icons";
 
 /*================ Dropdowns ================*/
 .site-nav__dropdown {
+  width: 155px;
   text-transform: none;
   opacity: 0;
   position: absolute;
