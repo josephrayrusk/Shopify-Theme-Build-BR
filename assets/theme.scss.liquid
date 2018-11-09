@@ -2755,7 +2755,7 @@ input[type="submit"].password-page__signup-form__submit {
     font-size: 19vw;
     margin-top: 5px;
     margin-bottom: 5px;
-    line-height: 68px;
+    line-height: 15.5vw;
   }
 }
 
@@ -2956,4 +2956,10 @@ hr {
       width: 100%;
       margin: 1em auto;
     }
+}
+
+.image-single_padding {
+  @include at-query($max, $medium) {
+  padding-top: 100%;
+  }
 }

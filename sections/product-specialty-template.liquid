@@ -79,12 +79,12 @@
                 {% capture img_id %}ProductImage-{{ image.id }}{% endcapture %}
                 {% capture img_wrapper_id %}ProductImageWrapper-{{ image.id }}{% endcapture %}
                 {%- assign img_url = image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
-                {% include 'image-style' with image: image, small_style: false, width: 800 , height: 1024, wrapper_id: img_wrapper_id, img_id: img_id %}
+
 
                 <div id="{{ img_wrapper_id }}" class="product-single__image-wrapper supports-js{% unless featured_image == image %} hide{% endunless %}{% if section.settings.product_image_zoom_type == 'lightbox' %} zoom-lightbox{% endif %}" data-image-id="{{ image.id }}">
-                  <div style="padding-top:{{ 1 | divided_by: image.aspect_ratio | times: 100}}%;">
+                  <div class="image-single_padding">
                     <img id="{{ img_id }}"
-                         class="product-single__image lazyload{% unless featured_image == image %} lazypreload{% endunless %}"
+                         class="product-spec-single__image lazyload{% unless featured_image == image %} lazypreload{% endunless %}"
                          {% if featured_image == image %}src="{{ image | img_url: '300x300' }}"{% endif %}
                          data-src="{{ img_url }}"
                          data-widths="[180, 370, 540, 740, 900, 1080, 1296, 1512, 1728, 2048]"

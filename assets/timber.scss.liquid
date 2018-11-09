@@ -2715,10 +2715,28 @@ input.cart__quantity-selector {
 }
 
 .product-single__image {
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+  &.lazyload {
+    opacity: 0;
+  }
+}
+.product-spec-single__image {
+  @include at-query($max, $medium) {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  @include at-query($min, $medium) {
+  object-fit: cover;
+  object-position: 50% 0;
+  width: 1000px;
+  height: 75vh;
+}
 
   &.lazyload {
     opacity: 0;
