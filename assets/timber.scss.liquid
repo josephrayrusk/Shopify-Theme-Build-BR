@@ -12,6 +12,27 @@
 * {
     box-sizing: border-box;
 }
+/*================ Partials | Icons ================*/
+@font-face {
+  font-family: "icons";
+  src: url('{{ "icons.eot" | asset_url }}');
+  src: url('{{ "icons.eot" | asset_url }}#iefix') format("embedded-opentype"),
+    url('{{ "icons.woff" | asset_url }}') format("woff"),
+    url('{{ "icons.ttf" | asset_url }}') format("truetype"),
+    url('{{ "icons.svg" | asset_url }}#timber-icons') format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+$socialIconFontStack: "icons";
+
+.icon-fallback-text .icon {
+  display: none;
+
+  .supports-fontface & {
+    display: inline-block;
+  }
+}
+
 /*================ Custom Created Colors ================*/
 $headerBackground: #272727;
 $headerTextColor: white;
@@ -260,6 +281,7 @@ $breakpoint-has-pull:  ('medium', 'medium-down', 'large', 'post-large', 'wide');
 /*================ Color variables ================*/
 $colorPrimary: #008c95;
 $transparent: rgba(255, 255, 255, .1);
+$hoverColor: #EDC038;
 
 // Button colors
 $colorBtnBorder: $colorPrimary;
@@ -276,10 +298,10 @@ $colorBtnTertiaryText: $colorPrimary;
 
 // Text link colors
 $colorLink: $colorPrimary;
-$colorLinkHover: lighten($colorPrimary, 15%);
+$colorLinkHover: $hoverColor;
 
 // Text colors
-$colorTextBody: {{ settings.color_body_text }};
+$colorTextBody: $headerBackground;
 $colorTopBarText: {{ settings.color_topbar_text }};
 
 // Backgrounds
@@ -295,7 +317,7 @@ $colorBorder: {{ settings.color_borders }};
 $colorNavText: #008c95;
 
 // Site Footer
-$colorFooterBg: {{ settings.color_footer_bg }};
+$colorFooterBg: #444545;
 $colorFooterText: {{ settings.color_footer_text }};
 $colorFooterSocialLink: {{ settings.color_footer_social_link }};
 
@@ -330,24 +352,24 @@ $passwordPageUseBgImage: true;
 {{ accent_family_bold | font_face }}
 
 // Body Font
-$bodyFontStack: {{ base_family.family }}, {{ base_family.fallback_families }};
-$bodyFontWeight: {{ base_family.weight }};
-$bodyFontWeightBold: {{ base_family_bold.weight | default: 700 }};
-$bodyFontStyle: {{ base_family.style }};
+$bodyFontStack: itc-avant-garde-gothic-pro, sans-serif, {{ base_family.fallback_families }};
+$bodyFontWeight: 400;
+$bodyFontWeightBold: 700;
+$bodyFontStyle: normal;
 $bodyFontItalic: {{ base_family_italic.style | default: 'italic' }};
 $baseFontSize: {{ settings.type_base_size }};
 
 // Header Font
-$headerFontStack: {{ header_family.family }}, {{ header_family.fallback_families }};
-$headerFontWeight: {{ header_family.weight }};
-$headerFontStyle: {{ header_family.style }};
+$headerFontStack: itc-avant-garde-gothic-pro, sans-serif, {{ header_family.fallback_families }};
+$headerFontWeight: 400;
+$headerFontStyle: normal;
 $headerBaseFontSize: {{ settings.type_header_size }};
 
 // Navigation and buttons
-$accentFontStack: {{ accent_family.family }}, {{ accent_family.fallback_families }};
-$accentFontWeight: {{ accent_family.weight }};
-$accentFontWeightBold: {{ accent_family_bold.weight | default: 700 }};
-$accentFontStyle: {{ accent_family.style }};
+$accentFontStack: itc-avant-garde-gothic-pro, sans-serif, {{ accent_family.fallback_families }};
+$accentFontWeight: 400;
+$accentFontWeightBold: 700;
+$accentFontStyle: normal;
 $accentFontSize: {{ settings.type_accent_size }};
 
 // Header type settings
@@ -1672,28 +1694,6 @@ label.error {
     max-width: 100%;
   }
 }
-
-/*================ Partials | Icons ================*/
-@font-face {
-  font-family: "icons";
-  src: url('{{ "icons.eot" | asset_url }}');
-  src: url('{{ "icons.eot" | asset_url }}#iefix') format("embedded-opentype"),
-    url('{{ "icons.woff" | asset_url }}') format("woff"),
-    url('{{ "icons.ttf" | asset_url }}') format("truetype"),
-    url('{{ "icons.svg" | asset_url }}#timber-icons') format("svg");
-  font-weight: normal;
-  font-style: normal;
-}
-$socialIconFontStack: "icons";
-
-.icon-fallback-text .icon {
-  display: none;
-
-  .supports-fontface & {
-    display: inline-block;
-  }
-}
-
 /*============================================================================
   A generic way to visually hide content while
   remaining accessible to screen readers (h5bp.com)
@@ -2015,7 +2015,7 @@ $socialIconFontStack: "icons";
 .pagination-custom > .active > span:focus {
   z-index: 2;
   cursor: default;
-  color: $colorTextBody;
+  color: $colorNavText;
 }
 
 .pagination-custom > .disabled > span,
@@ -2881,7 +2881,9 @@ input.cart__quantity-selector {
     position: relative;
   }
   :hover {
-    transform: scale(1.02);
+    transform: scale(1.01) translateY(-1px);
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.1s;
   }
 }
 

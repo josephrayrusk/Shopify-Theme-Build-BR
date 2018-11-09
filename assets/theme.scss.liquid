@@ -6,6 +6,7 @@
   display: none;
 }
 $headerBackground: #272727;
+$hoverColor: #EDC038;
 /*================ Variables, theme settings, and Sass mixins from Timber ================*/
 /*================ Global | Sass Mixins ================*/
 @mixin clearfix() {
@@ -284,7 +285,7 @@ $colorBorder: {{ settings.color_borders }};
 $colorNavText: $colorPrimary;
 
 // Site Footer
-$colorFooterBg: {{ settings.color_footer_bg }};
+$colorFooterBg: #008c95;
 $colorFooterText: {{ settings.color_footer_text }};
 $colorFooterSocialLink: {{ settings.color_footer_social_link }};
 
@@ -1133,7 +1134,7 @@ html, body { background: $colorBody; }
       opacity: 0.8;
     }
     .grid-link__title {
-      color: #EDC038;
+      color: $hoverColor;
     }
   }
 }
