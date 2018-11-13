@@ -86,7 +86,7 @@
 {% endcomment %}
           </div>
 
-          {% if product.images.size > 1 %} 
+          {% if product.images.size > 1 %}
             <ul style="display: flex; justify-content: center;"class="productThumbs grid product-single__thumbnails post-large--hide" id="ProductThumbs">
               {% for image in product.images %}
                 <li class="">
@@ -199,7 +199,7 @@
             </select>
             <div class="bold_options" data-product-id="{{ product.id }}"></div>
 
-            <div class="product-single__quantity{% unless section.settings.product_quantity_enable %} is-hidden{% endunless %}">
+            <div class="product-single__quantity">
               <label for="Quantity">{{ 'products.product.quantity' | t }}</label>
               <input type="number" id="Quantity" name="quantity" value="1" min="1" class="quantity-selector">
             </div>
@@ -241,6 +241,7 @@
     <div class="product-description rte moreInfo full-width-about" itemprop="description">
       {{ product.description }}
     </div>
+    {% include 'image-grid' %}
 {% if product.metafields.c_f.continent %}
 <img class="full-width-img" src="{{ product.metafields.c_f.continent }}" alt="Coffee Location">
 {% endif %}

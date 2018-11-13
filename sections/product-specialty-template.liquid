@@ -191,7 +191,7 @@
               {% endfor %}
             </select>
 
-            <div class="product-single__quantity{% unless section.settings.product_quantity_enable %} is-hidden{% endunless %}">
+            <div class="product-single__quantity">
               <label for="Quantity">{{ 'products.product.quantity' | t }}</label>
               <input type="number" id="Quantity" name="quantity" value="1" min="1" class="quantity-selector">
             </div>
@@ -228,10 +228,11 @@
         </ul>
       {% endif %}
 {% endcomment %}
-<h4 class="metaInfo text-center" style="font-weight: 900;">More Information</h4>
-<div class="product-description rte" itemprop="description">
-  {{ product.description }}
-</div>
+      <h4 class="metaInfo text-center" style="font-weight: 900;">More Information</h4>
+      <div class="product-description rte" itemprop="description">
+        {{ product.description }}
+      </div>
+      {% include 'image-grid' %}
     </div>
   </div>
 

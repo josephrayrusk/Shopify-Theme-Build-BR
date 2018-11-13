@@ -1138,7 +1138,10 @@ button[disabled],
 html input[disabled] {
   cursor: default;
 }
-
+.btn:active, .btn--secondary:active, .btn--tertiary:active, .shopify-payment-button .shopify-payment-button__button--unbranded:active, input[type="submit"]:active, .btn:focus, .btn--secondary:focus, .btn--tertiary:focus, .shopify-payment-button .shopify-payment-button__button--unbranded:focus, input[type="submit"]:focus {
+  outline: none;
+  box-shadow: 0 0 2pt 1pt #008c95;
+}
 .btn {
   display: inline-block;
   padding: 8px 16px;
@@ -1468,7 +1471,9 @@ select {
   color: #333;
 
   &:focus {
-    border: 2px solid transparentize($headerBackground, 0.8);
+//    border: 2px solid transparentize($headerBackground, 0.8);
+  outline: none;
+  box-shadow: 0 0 2pt 1pt #008c95;
   }
 
   &[disabled],
@@ -2807,6 +2812,7 @@ input.cart__quantity-selector {
 
   .quantity-selector {
     display: inline-block;
+    width: 30%;
   }
 }
 
