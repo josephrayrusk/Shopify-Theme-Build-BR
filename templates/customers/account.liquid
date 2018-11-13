@@ -2,9 +2,11 @@
   <h1 class="section-header__title">{{ 'customer.account.title' | t }}</h1>
 </div>
 
-<div class="grid">
+<div class="section">
+<div class="col-3">
 
-  <div class="grid__item two-thirds medium-down--one-whole">
+</div>
+  <div class="grid__item col-4 medium-down--one-whole">
     <h2 class="h4">{{ 'customer.orders.title' | t }}</h2>
 
     {% comment %}
@@ -15,7 +17,7 @@
 
     {% if customer.orders.size != 0 %}
 
-      <div class="table-wrap">
+      <div class="table-wrap mobile-hide">
         <table class="full">
           <thead>
             <tr>
@@ -29,7 +31,7 @@
           <tbody>
             {% for order in customer.orders %}
               <tr>
-                <td>{{ order.name | link_to: order.customer_url }}</td>
+                <td class="customer-order">{{ order.name | link_to: order.customer_url }}</td>
                 <td>{{ order.created_at | date: "%b %d, %Y" }}</td>
                 <td>{{ order.financial_status_label }}</td>
                 <td>{{ order.fulfillment_status_label }}</td>
@@ -39,7 +41,27 @@
           </tbody>
         </table>
       </div>
-
+<!-- Mobile Order History -->
+      <div class="table-wrap desk-hide" style="margin-left: -15px;">
+        <table class="full">
+          <thead>
+            <tr>
+              <th>{{ 'customer.orders.order_number' | t }}</th>
+              <th>{{ 'customer.orders.date' | t }}</th>
+              <th>{{ 'customer.orders.fulfillment_status' | t }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for order in customer.orders %}
+              <tr>
+                <td class="customer-order">{{ order.name | link_to: order.customer_url }}</td>
+                <td>{{ order.created_at | date: "%b %d, %Y" }}</td>
+                <td>{{ order.fulfillment_status_label }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
     {% else %}
 
       <p>{{ 'customer.orders.none' | t }}</p>
@@ -56,7 +78,7 @@
 
   </div>
 
-  <div class="grid__item one-third medium-down--one-whole">
+  <div class="grid__item col-3 medium-down--one-whole">
     <h2 class="h4">{{ 'customer.account.details' | t }}</h2>
 
     {{ customer.default_address | format_address }}

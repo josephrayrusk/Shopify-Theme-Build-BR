@@ -2887,6 +2887,11 @@ input[type="submit"].password-page__signup-form__submit {
     display: none;
   }
 }
+.desk-hide {
+  @include at-query($min, $medium) {
+    display: none;
+  }
+}
 .scol-1 {
   width: 33.33%;
   @include at-query($max, 1280px) {
@@ -2970,4 +2975,24 @@ hr {
   max-width: 25% !important;
   padding: 4px 4px;
   align-self: center;
+}
+.login-page {
+  float: right;
+  position: relative;
+  left: -25%;
+  text-align: center;
+}
+.customer-order {
+  a {
+    color: #008c95;
+    &:hover {
+      color: $hoverColor
+    }
+  }
+}
+.cart-4 {
+  width: 40%
+}
+.cart-6 {
+  width: 40%
 }

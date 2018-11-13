@@ -11,7 +11,9 @@
       <div class="section-header">
         <h1 class="section-header__title">{{ 'cart.general.title' | t }}</h1>
       </div>
-
+<div class="section">
+<div class="col-2"></div>
+<div class="col-6">
       <div class="cart__row medium-down--hide cart__header-labels">
         <div class="grid--full">
           <div class="grid__item post-large--one-half push--post-large--one-half">
@@ -40,7 +42,7 @@
             <div class="grid__item post-large--one-half">
               <div class="grid">
 
-                <div class="grid__item one-third">
+                <div class="grid__item cart-4">
                   <a href="{{ item.url | within: collections.all }}">
                     {% unless item.image == blank %}
                       {% capture img_id %}ProductImage-{{ item.id }}{% endcapture %}
@@ -68,7 +70,7 @@
                   </a>
                 </div>
 
-                <div class="grid__item two-thirds">
+                <div class="grid__item cart-6">
                   <a href="{{ item.url }}" class="h5">
                     {{ item.product.title }}
                   </a>
@@ -207,7 +209,9 @@
         </div>
 
       </div>
-
+</div>
+<div class="col-2"></div>
+</div>
     </form>
 
   {% else %}
