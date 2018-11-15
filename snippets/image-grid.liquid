@@ -1,9 +1,20 @@
-{% if product.images.size > 1 %}
-<div class="section mobile-hide" style="flex-wrap: wrap;">
+<!--{% if product.images.size > 1 %}
+<div class="mobile-hide lightbox-thumb">
   {% for image in product.images  %}
   {% if forloop.first %}
   {% else %}
-    <img class="lazyload product-image_grid" src="{{image.src | product_img_url: '500x' }}">
+    <a href="{{image.src | product_img_url: '500x' }}" data-lightbox="productImg>"> <img style="border-radius: 50px;" class="lazyload product-image_grid" src="{{image.src | product_img_url: '500x' }}" alt=""> </a>
+  {% endif %}
+  {% endfor %}
+</div>
+{% endif %}
+-->
+{% if product.images.size > 1 %}
+<div class="mobile-hide lightbox-thumb-specialty">
+  {% for image in product.images  %}
+  {% if forloop.first %}
+  {% else %}
+    <a href="{{image.src | product_img_url: '500x' }}" data-lightbox="productImg>"> <img class="lazyload product-image_grid" src="{{image.src | product_img_url: '100x' }}" alt=""> </a>
   {% endif %}
   {% endfor %}
 </div>

@@ -97,7 +97,6 @@
               {% endfor %}
             </ul>
           {% endif %}
-
       </div>
       <div class="col">
 
@@ -231,13 +230,16 @@
         </ul>
       {% endif %}
 {% endcomment %}
-
+<div class="">
+  {% include 'image-grid' %}
+</div>
     </div>
     <h4 class="metaInfo text-center" style="font-weight: 900;">More Information</h4>
     <div class="product-description rte moreInfo full-width-about" itemprop="description">
       {{ product.description }}
     </div>
-    {% include 'image-grid' %}
+    <div>
+  </div>
 {% if product.metafields.c_f.continent %}
 <img class="full-width-img" src="{{ product.metafields.c_f.continent }}" alt="Coffee Location">
 {% endif %}
@@ -254,8 +256,6 @@
     {{ product | json }}
   </script>
 {% endunless %}
-
-
 
 {% schema %}
 {

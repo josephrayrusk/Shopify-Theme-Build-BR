@@ -448,6 +448,12 @@ body {
   display: block;
   margin-top: 47px;
   padding-bottom: $gutter * 2;
+  a{
+    color: #008c95;
+    &:hover {
+      color: $hoverColor;
+    }
+  }
 }
 
 hr {
@@ -1354,6 +1360,7 @@ img.auto,
 .grid__item img,
 .grid__item iframe {
   max-width: 100%;
+  width: 100%;
 }
 
 .video-wrapper {
@@ -2706,6 +2713,9 @@ input.cart__quantity-selector {
 .product-single__photos {
   margin-bottom: $gutter;
   padding-left: 15px;
+  @include at-query ($min, $medium) {
+    margin-top: 5%;
+  }
 }
 
 .product-single__photos,

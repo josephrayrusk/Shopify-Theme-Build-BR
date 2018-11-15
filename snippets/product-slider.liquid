@@ -1,0 +1,10 @@
+{% if product.images.size > 1 %}
+<div class="section mobile-hide" style="flex-wrap: wrap;">
+  {% for image in product.images  %}
+  {% if forloop.first %}
+  {% else %}
+    <img class="lazyload product-image_grid zoon-lightbox" src="{{image.src | product_img_url: '500x' }}">
+  {% endif %}
+  {% endfor %}
+</div>
+{% endif %}
