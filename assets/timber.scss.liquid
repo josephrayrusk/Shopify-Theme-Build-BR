@@ -1157,7 +1157,7 @@ html input[disabled] {
   text-decoration: none;
   text-align: center;
   vertical-align: middle;
-  min-height: 44px;
+  min-height: 50px;
   white-space: nowrap;
   cursor: pointer;
   border: 1px solid transparent;
@@ -2819,27 +2819,61 @@ input.cart__quantity-selector {
 
 .product-single__quantity {
   margin-bottom: $gutter / 2;
+  width: 10%;
+  margin-right: 8px;
+  display: inline-block;
 
   &.is-hidden {
     display: none !important;
   }
+  @include at-query($max, $medium) {
+    margin: inherit;
+    width: 20%;
+  }
 
   .quantity-selector {
     display: inline-block;
-    width: 30%;
+    width: 10%;
+    min-width: 50px;
   }
+}
+.single-option-selector {
+  width: 30%;
+  min-width: 200px;
+  @include at-query($max, $medium) {
+    width: 100%;
+  }
+}
+.quantity-cart {
+  display: flex;
+  button {
+    width: 20%;
+    max-height: 50px;
+    margin-top: 30px;
+    min-width: 146px;
+    margin-left: 8px;
+  }
+  @include at-query($max, $medium) {
+  .quantity-selector {
+    width: 20% !important;
+    min-width: 54px;
+  }
+  button {
+    width: 80%;
+  }
+}
 }
 
 @include at-query($min, $large) {
   .single-option-selector,
   .quantity-selector {
-    width: 30%;
     background-color: white;
     color: $headerBackground;
     border-radius: 5px;
     border-width: 2px;
     border-color: $headerBackground;
     min-height: 50px;
+    margin-bottom: 5px;
   }
 }
 

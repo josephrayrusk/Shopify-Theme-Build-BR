@@ -190,15 +190,17 @@
                 {% endif %}
               {% endfor %}
             </select>
-
+            <div class="quantity-cart">
             <div class="product-single__quantity">
-              <label for="Quantity">{{ 'products.product.quantity' | t }}</label>
+              <label for="Quantity">Qty</label>
               <input type="number" id="Quantity" name="quantity" value="1" min="1" class="quantity-selector">
             </div>
-
             <button type="submit" name="add" id="AddToCart" class="btn {{ btn_class }}{% if section.settings.enable_payment_button %} btn--secondary{% endif %}">
               <span id="AddToCartText">{{ 'products.product.add_to_cart' | t }}</span>
             </button>
+            </div>
+
+
             {% if section.settings.enable_payment_button %}
               {{ form | payment_button }}
             {% endif %}
