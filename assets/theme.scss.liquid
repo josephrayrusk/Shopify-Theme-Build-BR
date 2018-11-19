@@ -2976,9 +2976,7 @@ hr {
   align-self: center;
 }
 .login-page {
-  float: right;
   position: relative;
-  left: -25%;
   text-align: center;
 }
 .customer-order {
@@ -3006,4 +3004,37 @@ hr {
     width: 6%;
     border-radius: 20px 0px 20px 0px;
   }
+}
+.footer-img {
+  width: 40%;
+  height: auto;
+  margin-right: 34%;
+  margin-left: auto;
+  @include at-query($max, $medium) {
+  margin: auto;
+  }
+
+}
+.footer-wrapper {
+  background-color: $headerBackground;
+  h3 {
+    color: white;
+  }
+}
+.footer-button {
+  color: white !important;
+  border-color: #008c95 !important;
+  text-transform: lowercase;
+  background-color: transparent !important;
+}
+.blog-articles {
+  flex-wrap: wrap;
+  @include at-query ($min, $medium) {
+  .col-3 {
+    width: 33.33%;
+  }
+}
+}
+.blog-articles-padding {
+  padding: 10px;
 }

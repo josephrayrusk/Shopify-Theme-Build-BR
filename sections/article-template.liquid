@@ -8,12 +8,13 @@
 
 {% comment %}{% include 'breadcrumb' %}{% endcomment %}
 
-<div class="grid" data-section-id="{{ section.id }}" data-section-type="article-template">
-
-  <article class="grid__item post-large--four-fifths" itemscope itemtype="http://schema.org/Article">
+<div class="section" data-section-id="{{ section.id }}" data-section-type="article-template">
+<div class="col-2"></div>
+<div class="col"></div>
+  <article class="grid__item col-6" itemscope itemtype="http://schema.org/Article">
 
     <div class="grid">
-      <div class="grid__item post-large--ten-twelfths">
+      <div class="grid__item">
 
         <header class="section-header">
           <h1 class="section-header__title">{{ article.title }}</h1>
@@ -156,8 +157,8 @@
       </div>
     </div>
   </article>
-
-  <aside class="sidebar grid__item post-large--one-fifth">
+<div class="col"></div>
+  <aside class="sidebar grid__item col-2">
     {% include 'blog-sidebar' %}
   </aside>
 </div>

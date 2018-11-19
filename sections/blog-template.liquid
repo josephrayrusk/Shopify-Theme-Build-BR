@@ -1,11 +1,14 @@
-{% paginate blog.articles by 5 %}
+{% paginate blog.articles by 20 %}
 
-<div class="grid">
+<div class="section">
+  <div class="col-2">
 
-  <div class="grid__item post-large--four-fifths">
+  </div>
+  <div class="col"></div>
+  <div class="col-6">
 
     <div class="grid">
-      <div class="grid__item post-large--ten-twelfths">
+      <div class="grid__item">
 
         {% comment %}{% include 'breadcrumb' %}{% endcomment %}
         <header class="section-header">
@@ -17,23 +20,9 @@
             {% endif %}
           </h1>
         </header>
-
+<div class="section blog-articles">
         {% for article in blog.articles %}
-
-          <h2><a href="{{ article.url }}">{{ article.title }}</a></h2>
-          <p class="blog-date">
-            <time datetime="{{ article.published_at | date: '%Y-%m-%d' }}">{{ article.published_at | date: format: 'month_day_year' }}</time>
-            {% if section.settings.blog_author_enable %}
-              <span class="meta-sep">&#8226;</span>
-              {{ article.author }}
-            {% endif %}
-            {% if article.tags.size > 0 %}
-              <span class="meta-sep">&#8226;</span>
-              {% for tag in article.tags %}
-                <a href="{{ blog.url }}/tagged/{{ tag | handle }}">{{ tag }}</a>{% unless forloop.last %} <span class="meta-sep">&#8226;</span> {% endunless %}
-              {% endfor %}
-            {% endif %}
-          </p>
+        <div class="col-3 blog-articles-padding">
 
           {% comment %}
             Add a surrounding div with class 'rte' to anything that will come from the rich text editor.
@@ -65,19 +54,27 @@
                 <p>{{ article | img_url: '1024x1024' | img_tag: image_alt, 'article__image' | link_to: article.url }}</p>
               </noscript>
             {% endif %}
-            {% if article.excerpt.size > 0 %}
-              {{ article.excerpt }}
-            {% else %}
-              <p>{{ article.content | strip_html | truncatewords: 100 }}</p>
-            {% endif %}
           </div>
-
+          <h2><a href="{{ article.url }}">{{ article.title }}</a></h2>
+          <p class="blog-date">
+            <time datetime="{{ article.published_at | date: '%Y-%m-%d' }}">{{ article.published_at | date: format: 'month_day_year' }}</time>
+            {% if section.settings.blog_author_enable %}
+              <span class="meta-sep">&#8226;</span>
+              {{ article.author }}
+            {% endif %}
+            {% if article.tags.size > 0 %}
+              <span class="meta-sep">&#8226;</span>
+              {% for tag in article.tags %}
+                <a href="{{ blog.url }}/tagged/{{ tag | handle }}">{{ tag }}</a>{% unless forloop.last %} <span class="meta-sep">&#8226;</span> {% endunless %}
+              {% endfor %}
+            {% endif %}
+          </p>
           <p><a href="{{ article.url }}">{{ 'blogs.article.read_more' | t }} &rarr;</a></p>
 
           {% unless forloop.last %}<hr>{% endunless %}
-
+</div>
         {% endfor %}
-
+</div>
         {% if paginate.pages > 1 %}
           <div class="text-center">
             {% include 'pagination-custom' %}
@@ -86,8 +83,8 @@
       </div>
     </div>
   </div>
-
-  <aside class="sidebar grid__item post-large--one-fifth">
+  <div class="col"></div>
+  <aside class="sidebar grid__item col-2">
     {% include 'blog-sidebar' %}
   </aside>
 

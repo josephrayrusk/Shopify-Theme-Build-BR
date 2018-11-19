@@ -14,7 +14,7 @@
   {% for image in product.images  %}
   {% if forloop.first %}
   {% else %}
-    <a href="{{image.src | product_img_url: '500x' }}" data-lightbox="productImg>"> <img class="lazyload product-image_grid" src="{{image.src | product_img_url: '100x' }}" alt=""> </a>
+    <a href="{{image.src | product_img_url: '500x' }}" data-lightbox="productImg>"> <img class="lazyload product-image_grid" src="{{image.src | product_img_url: '150x' }}" alt=""> </a>
   {% endif %}
   {% endfor %}
 </div>

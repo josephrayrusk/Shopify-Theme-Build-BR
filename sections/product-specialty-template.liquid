@@ -191,13 +191,15 @@
               {% endfor %}
             </select>
             <div class="quantity-cart">
-            <div class="product-single__quantity">
-              <label for="Quantity">Qty</label>
-              <input type="number" id="Quantity" name="quantity" value="1" min="1" class="quantity-selector">
-            </div>
-            <button type="submit" name="add" id="AddToCart" class="btn {{ btn_class }}{% if section.settings.enable_payment_button %} btn--secondary{% endif %}">
-              <span id="AddToCartText">{{ 'products.product.add_to_cart' | t }}</span>
-            </button>
+              <div class="product-single__quantity">
+                <label for="Quantity">Qty</label>
+                <input type="number" id="Quantity" name="quantity" value="1" min="1" class="quantity-selector">
+              </div>
+              <div style="width: 1%;">
+              </div>
+              <button type="submit" name="add" id="AddToCart" class="btn {{ btn_class }}{% if section.settings.enable_payment_button %} btn--secondary{% endif %}">
+                <span id="AddToCartText">{{ 'products.product.add_to_cart' | t }}</span>
+              </button>
             </div>
 
 
@@ -234,15 +236,12 @@
   {% include 'image-grid' %}
 </div>
       <h4 class="metaInfo text-center" style="font-weight: 900;">More Information</h4>
-      <div class="product-description rte" itemprop="description">
+      <div class="product-description rte moreInfo full-width-about" itemprop="description">
         {{ product.description }}
       </div>
     </div>
   </div>
-
-  {% if section.settings.product_related_enable %}
     {% include 'related-products' %}
-  {% endif %}
 
 </div>
 

@@ -1784,6 +1784,10 @@ label.error {
   .icon {
     font-size: 22px;
     line-height: 22px;
+    color: #008c95;
+    @include at-query ($min, $medium) {
+      font-size: 4em;
+    }
   }
 
   a {
@@ -1858,10 +1862,10 @@ label.error {
 
 /*================ Module | Footer ================*/
 .site-footer {
-  background-color: $colorFooterBg;
+  background-color: $headerBackground;
   padding-top: $gutter;
   padding-bottom: 20px;
-  color: $colorFooterText;
+  color: white;
 
   form {
     margin-bottom: 0;
@@ -1907,7 +1911,7 @@ label.error {
 
 .site-footer__links {
   a {
-    color: $colorFooterText;
+    color: $hoverColor;
 
     &:hover,
     &:active {
@@ -2517,7 +2521,7 @@ aside time em {
 
 .article__image-wrapper {
   width: 100%;
-  margin: 0 auto;
+  margin-left: 0;
 
   &.supports-js {
     position: relative;
@@ -2819,8 +2823,7 @@ input.cart__quantity-selector {
 
 .product-single__quantity {
   margin-bottom: $gutter / 2;
-  width: 10%;
-  margin-right: 8px;
+  width: 30%;
   display: inline-block;
 
   &.is-hidden {
@@ -2828,13 +2831,12 @@ input.cart__quantity-selector {
   }
   @include at-query($max, $medium) {
     margin: inherit;
-    width: 20%;
+    width: 30%;
   }
 
   .quantity-selector {
     display: inline-block;
-    width: 10%;
-    min-width: 50px;
+    width: 100%;
   }
 }
 .single-option-selector {
@@ -2846,22 +2848,16 @@ input.cart__quantity-selector {
 }
 .quantity-cart {
   display: flex;
+  min-width: 200px;
+  width: 30%;
   button {
-    width: 20%;
+    width: 70%;
     max-height: 50px;
     margin-top: 30px;
-    min-width: 146px;
-    margin-left: 8px;
   }
   @include at-query($max, $medium) {
-  .quantity-selector {
-    width: 20% !important;
-    min-width: 54px;
+    width: 100%;
   }
-  button {
-    width: 80%;
-  }
-}
 }
 
 @include at-query($min, $large) {

@@ -6,7 +6,7 @@
     {% else %}
       <input type="hidden" name="contact[tags]" value="newsletter">
       <input type="email" value="{% if customer %}{{ customer.email }}{% endif %}" placeholder="{{ 'general.newsletter_form.newsletter_email' | t }}" name="contact[email]" id="Email" class="input-group-field" aria-label="{{ 'general.newsletter_form.newsletter_email' | t }}" autocorrect="off" autocapitalize="off">
-      <input type="submit" class="btn" name="subscribe" id="subscribe" value="{{ 'general.newsletter_form.submit' | t }}">
+      <input type="submit" class="footer-button btn" name="subscribe" id="subscribe" value="{{ 'general.newsletter_form.submit' | t }}">
     {% endif %}
   {% endform %}
 </div>
@@ -20,7 +20,7 @@
       <div class="input-group">
         <input type="email" value="{% if customer %}{{ customer.email }}{% endif %}" placeholder="{{ 'general.newsletter_form.newsletter_email' | t }}" name="contact[email]" id="Email" class="input-group-field" aria-label="{{ 'general.newsletter_form.newsletter_email' | t }}" autocorrect="off" autocapitalize="off">
         <span class="input-group-btn">
-          <button type="submit" class="btn" name="commit" id="subscribe">{{ 'general.newsletter_form.submit' | t }}</button>
+          <button type="submit" class="footer-button btn" name="commit" id="subscribe">{{ 'general.newsletter_form.submit' | t }}</button>
         </span>
       </div>
     {% endif %}
