@@ -1867,6 +1867,8 @@ label.error {
   padding-top: $gutter;
   padding-bottom: 20px;
   color: white;
+  max-height: 300px;
+  margin-top: 10px;
 
   form {
     margin-bottom: 0;
@@ -1889,10 +1891,6 @@ label.error {
 
   ul {
     margin-bottom: 0;
-  }
-  &:after {
-    background-color: $headerBackground;
-    height: auto;
   }
   @include at-query ($min, $large) {
     padding-top: $gutter;
@@ -2112,6 +2110,14 @@ label.error {
 .section-header {
   text-align: left;
   margin-bottom: $gutter / 2;
+}
+.section-header-center {
+  display: table;
+  width: 100%;
+  text-align: center;
+  h2 {
+    color: $headerBackground;
+  }
 }
 
 .section-header--small {
@@ -3016,7 +3022,7 @@ $minSpecialtyHeight: 600px;
     box-sizing: border-box;
 }
 
-// ----- Subscription Header css
+// ----- Subscription Header CSS
 
 .sub-header-background {
   background-image: url("https://cdn.shopify.com/s/files/1/2013/2883/files/SubscriptionHeader.svg?2332652931522406872");
@@ -3027,7 +3033,7 @@ $minSpecialtyHeight: 600px;
   @include at-query($max, $medium) {
     height: 100vh;
     max-height: 800px;
-    margin-top: -17.5px !important;
+    margin-top: -19px !important;
     background-size: cover;
     display: flex;
     flex-direction: column;

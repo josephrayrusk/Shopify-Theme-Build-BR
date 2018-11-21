@@ -5,8 +5,8 @@
 
 <div data-section-id="{{ section.id }}" data-section-type="featured-products-section">
   {% unless section.settings.title == blank %}
-  <div class="section-header section-header--small">
-   <h2 class="section-header__title">
+  <div class="section-header-center section-header--small">
+   <h2>
       {{ section.settings.title | escape }}
     </h2>
   </div>
@@ -14,20 +14,19 @@
 
   {% case products_per_row %}
     {% when 3 %}
-      {% assign grid_item_width = 'medium--one-third post-large--one-third' %}
+      {% assign grid_item_width = 'featured_collection_grid' %}
       {%- assign product_width = 410 -%}
     {% when 4 %}
-      {% assign grid_item_width = 'medium-down--one-half post-large--one-quarter' %}
+      {% assign grid_item_width = 'featured_collection_grid' %}
       {%- assign product_width = 335 -%}
     {% when 5 %}
-      {% assign grid_item_width = 'medium-down--one-half post-large--one-fifth' %}
+      {% assign grid_item_width = 'featured_collection_grid' %}
       {%- assign product_width = 335 -%}
   {% endcase %}
-
-  <div class="grid-uniform">
-    {% for product in collections[featured].products limit: total_products %}
+  <div class="featured-section col-8" style="max-width: 1000px;">
+    {% for product in collections[featured].products limit: 6 %}
       {% assign featured = product %}
-      <div class="grid__item {{grid_item_width}}" {{ block.shopify_attributes }}>
+      <div class="{{grid_item_width}}" {{ block.shopify_attributes }}>
         {% include 'product-grid-item' %}
       </div>
     {% else %}
@@ -35,7 +34,7 @@
         <div class="helper-section">
           <div class="grid-uniform helper-content">
             {% for i in (1..total_products) %}
-              <div class="grid__item {{grid_item_width}}">
+              <div class="col-5">
                 <a href="/admin/products" class="grid-link{% if section.settings.center_grid_link %} text-center{% endif %}">
                   <span class="grid-link__image">
                     <span class="grid-link__image-centered">

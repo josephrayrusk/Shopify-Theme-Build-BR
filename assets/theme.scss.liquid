@@ -1253,7 +1253,7 @@ $badgeSize: 60px;
   left: 50%;
   margin-top: -($badgeSize / 2);
   margin-left: -($badgeSize / 2);
-  background-color: $colorBtnPrimary;
+  background-color: $hoverColor+F2;
 }
 
 .badge--sale {
@@ -2676,7 +2676,6 @@ input[type="submit"].password-page__signup-form__submit {
 	float:left;
 	margin: 1% 0 1% 1.6%;
 }
-.col:first-child { margin-left: 0; }
 
 /*  GROUPING  */
 .group:before,
@@ -3010,8 +3009,10 @@ hr {
   height: auto;
   margin-right: 34%;
   margin-left: auto;
+  max-height: 8vw;
   @include at-query($max, $medium) {
   margin: auto;
+  max-height: none;
   }
 
 }
@@ -3037,4 +3038,85 @@ hr {
 }
 .blog-articles-padding {
   padding: 10px;
+}
+.christmas-wrapper {
+  background-image: url('assets/christmas-background.svg');
+  background-repeat: repeat-x;
+  background-position: bottom;
+  padding-bottom: 2%;
+  @include at-query ($min, $medium) {
+    height: 70vh;
+  }
+  @include at-query ($max, $medium) {
+    #or-text {
+      width: 20% !important;
+    }
+  }
+}
+
+.christmas-image {
+  width: 70% !important;
+  margin: auto;
+  transition: all .2s ease-in-out;
+  @include at-query ($max, $medium) {
+    height: 100%;
+  }
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.featured_collection_grid {
+  width: 33.33%;
+  @include at-query ($max, $medium) {
+    width: 50%;
+  }
+}
+.featured-section {
+clear: both;
+padding: 0px;
+display: flex;
+flex-wrap: wrap;
+margin: auto;
+justify-content: center;
+}
+
+.col-grid-item{
+  width: 249px;
+  height: 160px;
+  display: flex;
+  text-align: center;
+  margin: 10px;
+  border: 3px solid $headerBackground;
+  transition: all .2s ease-in-out;
+  h3 {
+    background: $headerBackground+E6;
+    width: 200px;
+    margin: auto;
+    padding: 20px 30px;
+    color: white;
+    text-transform: uppercase;
+  }
+  &:hover {
+    h3{
+      background-color: $headerBackground+B3;
+    }
+    transform: scale(1.05);
+  }
+}
+
+.collect-1, .collect-2, .collect-3, .collect-4 {
+  background-size: cover !important;
+}
+.collect-1 {
+  background: url('https://cdn.shopify.com/s/files/1/2013/2883/files/Block_3.svg?8602327757820997870');
+}
+.collect-2 {
+  background: url('https://cdn.shopify.com/s/files/1/2013/2883/files/Block_4.svg?8602327757820997870');
+}
+.collect-3 {
+  background: url('https://cdn.shopify.com/s/files/1/2013/2883/files/Block_2.svg?8602327757820997870');
+}
+.collect-4 {
+  background: url('https://cdn.shopify.com/s/files/1/2013/2883/files/Block_1.svg?8602327757820997870');
 }
