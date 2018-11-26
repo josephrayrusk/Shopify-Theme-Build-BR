@@ -447,7 +447,7 @@ body {
 .main-content {
   display: block;
   margin-top: 47px;
-  padding-bottom: $gutter * 2;
+  margin-bottom: 60px;
   a{
     color: #008c95;
     &:hover {
@@ -1189,6 +1189,7 @@ html input[disabled] {
     cursor: default;
     color: $disabledBorder;
     background-color: $disabledGrey;
+    width: 100% !important;
   }
 }
 
@@ -1511,7 +1512,7 @@ select {
     image: url('https://cdn.shopify.com/s/files/1/2013/2883/files/Blue_Arrow.svg?10113417246790720899');
 //    image: url('{{ "ico-select.svg" | asset_url }}');
     repeat: no-repeat;
-    position: right 10px center;
+    position: right 0px center;
     color: #fff;
   }
   padding-right: 28px;
@@ -1867,9 +1868,10 @@ label.error {
   padding-top: $gutter;
   padding-bottom: 20px;
   color: white;
-  max-height: 300px;
   margin-top: 10px;
-
+  @include at-query($min, $medium) {
+        max-height: 300px;
+}
   form {
     margin-bottom: 0;
   }
@@ -2799,7 +2801,7 @@ input.cart__quantity-selector {
   font-style: $headerFontStyle;
   margin-bottom: $gutter / 2;
   @include at-query($max, $medium) {
-    background-color: #fdf7ef;
+    background-color: #fdf7ef99;
     border-radius: 50px;
     padding:5px;
   }
@@ -2810,7 +2812,7 @@ input.cart__quantity-selector {
 }
 
 .product-single__price {
-  color: $colorPrimary;
+  color: $hoverColor;
   font-size: 1.4 * $baseFontSize;
   font-weight: $headerFontWeight;
 }
@@ -2849,17 +2851,36 @@ input.cart__quantity-selector {
     width: 100%;
   }
 }
-.single-option-selector {
-  width: 30%;
-  min-width: 200px;
+.option-wrapper {
+  width: 50%;
+  margin-top: 10px;
   @include at-query($max, $medium) {
     width: 100%;
   }
+  .bold-ro__recurring-title {
+  color: #363636;
+  font-weight: bold;
+  padding: 0px;
+  margin-bottom: 0px;
+  font-family: itc-avant-garde-gothic-pro, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.3vw;
+  text-transform: capitalize;
+  @include at-query($max, $medium) {
+    font-size: 20px;
+  }
+  }
+  .bold_option_title {
+    font-weight: 400;
+  }
+}
+.single-option-selector {
+  min-width: 200px;
 }
 .quantity-cart {
   display: flex;
   min-width: 200px;
-  width: 30%;
   button {
     width: 70%;
     max-height: 50px;

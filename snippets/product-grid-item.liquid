@@ -35,6 +35,9 @@
         </span>
       {% endif %}
       <span class="grid-link__image-centered">
+        {% if product.metafields.c_f.coffee_review %}
+          <img class="coffee-review-badge" src='{{ product.metafields.c_f.coffee_review }}'>
+        {% endif %}
         {% if featured.title != '' %}
           {% unless featured.featured_image == blank %}
             {% capture img_id %}ProductImage-{{ featured.featured_image.id }}{% endcapture %}

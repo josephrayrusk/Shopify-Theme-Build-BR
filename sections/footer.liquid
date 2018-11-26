@@ -3,22 +3,24 @@
 <div class="wrapper">
 
   <div class="section">
-          <div class="col-4 section">
-            <img class ="footer-img" src="https://cdn.shopify.com/s/files/1/2013/2883/files/Empowered.svg?10945148646696417261" alt="">
-          </div>
-
-          <div class="col-3">
-            <h3 class="">FOLLOW US</h3>
-              {% include 'social-links' %}
-          </div>
-
-          <div class="col-3">
-            <h3 class="">HEAR ABOUT WHAT'S NEW</h3>
-            {% unless block.settings.subtext == blank %}
-              {{ block.settings.subtext }}
-            {% endunless %}
-            {% include 'newsletter-form' %}
-          </div>
+    <div class="col"></div>
+    <div class="col-4 section">
+      <img class ="footer-img" src="https://cdn.shopify.com/s/files/1/2013/2883/files/Empowered.svg?10945148646696417261" alt="">
+    </div>
+    <div class="col"></div>
+    <div class="col-3">
+      <h3 class="">FOLLOW US</h3>
+        {% include 'social-links' %}
+    </div>
+    <div class="col"></div>
+    <div class="col-3">
+      <h3 class="">HEAR ABOUT WHAT'S NEW</h3>
+      {% unless block.settings.subtext == blank %}
+        {{ block.settings.subtext }}
+      {% endunless %}
+      {% include 'newsletter-form' %}
+    </div>
+    <div class="col"></div>
   </div>
 
   <hr class="hr--small hr--clear">

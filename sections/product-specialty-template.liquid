@@ -58,7 +58,7 @@
             <h4 class="metaInfo"><span>altitude: </span>{{ product.metafields.c_f.altitude }} MASL</h4>
           {% endif %}
           {% if product.metafields.c_f.roast %}
-            <h4 class="metaInfo"><span>roast level: </span>{{ product.metafields.c_f.roast }} MASL</h4>
+            <h4 class="metaInfo"><span>roast level: </span>{{ product.metafields.c_f.roast }}</h4>
           {% endif %}
           {% if product.metafields.c_f.process %}
             <h4 class="metaInfo"><span>process: </span>{{ product.metafields.c_f.process }}</h4>
@@ -176,6 +176,7 @@
               {%- endif -%}
             </div>
           {%- endif -%}
+          <div class="option-wrapper">
           {% form 'product', product, class:productform_class %}
             <select name="id" id="ProductSelect-{{ section.id }}" class="product-single__variants">
               {% for variant in product.variants %}
@@ -207,7 +208,7 @@
               {{ form | payment_button }}
             {% endif %}
           {% endform %}
-
+</div>
           {% if section.settings.social_sharing %}
             <hr class="hr--clear hr--small">
             <h2 class="h4">{{ 'products.general.share_title' | t }}</h2>
@@ -247,7 +248,7 @@
 
 {% unless product == empty %}
   <script type="application/json" id="ProductJson-{{ section.id }}">
-    {{ product | json }}
+    {%- include 'bold-product', output: 'json' -%}
   </script>
 {% endunless %}
 

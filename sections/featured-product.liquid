@@ -68,7 +68,7 @@
               <div id="{{ img_wrapper_id }}" class="product-single__image-wrapper supports-js{% unless featured_image == image %} hide{% endunless %}{% if section.settings.product_image_zoom_type == 'lightbox' %} zoom-lightbox{% endif %}" data-image-id="{{ image.id }}">
                 <div style="padding-top:{{ 1 | divided_by: image.aspect_ratio | times: 100}}%;">
                   <img id="{{ img_id }}"
-                        class="product-single__image lazyload{% unless featured_image == image %} lazypreload{% endunless %}"
+                        class="product-single__image lazyload"
                         {% if featured_image == image %}src="{{ image | img_url: '300x300' }}"{% endif %}
                         data-src="{{ img_url }}"
                         data-widths="[180, 370, 540, 740, 900, 1080, 1296, 1512, 1728, 2048]"
@@ -192,7 +192,7 @@
 
 {% unless product == empty %}
   <script type="application/json" id="ProductJson-{{ section.id }}">
-    {{ product | json }}
+    {%- include 'bold-product', output: 'json' -%}
   </script>
 {% endunless %}
 

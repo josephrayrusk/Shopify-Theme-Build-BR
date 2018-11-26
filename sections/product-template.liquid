@@ -1,3 +1,4 @@
+{%- include 'bold-ro' -%}
 {%- include 'bold-product' with product, hide_action: 'break', output: 'none' -%}
 <div itemscope itemtype="http://schema.org/Product" id="ProductSection" data-section-id="{{ section.id }}" data-section-type="product-template" data-image-zoom-type="{{ section.settings.product_image_zoom_type }}" data-related-enabled="{{ section.settings.product_related_enable }}" data-show-extra-tab="{{ section.settings.show_extra_tab }}" data-extra-tab-content="{{ section.settings.extra_tab_content }}" data-enable-history-state="true">
 
@@ -37,6 +38,9 @@
   <div class="product-single">
     <div class="section">
       <div class="col-5">
+        {% if product.metafields.c_f.coffee_review %}
+          <img class="p_coffee-review-badge" src='{{ product.metafields.c_f.coffee_review }}'>
+        {% endif %}
 
           <div class="grid">
 
@@ -179,6 +183,7 @@
               <h4 class="metaInfo"><span>varietal: </span>{{ product.metafields.c_f.varietal }}</h4>
             {% endif %}
         </div>
+        <div class="option-wrapper">
           {% form 'product', product, class:productform_class %}
             <select name="id" id="ProductSelect-{{ section.id }}" class="product-single__variants">
               {% for variant in product.variants %}
@@ -194,23 +199,25 @@
               {% endfor %}
             </select>
             <div class="bold_options" data-product-id="{{ product.id }}"></div>
-
+            {{ bold_ro_widget }}
             <div class="quantity-cart">
               <div class="product-single__quantity">
                 <label for="Quantity">Qty</label>
                 <input type="number" id="Quantity" name="quantity" value="1" min="1" class="quantity-selector">
               </div>
+
               <div style="width: 1%;">
               </div>
               <button type="submit" name="add" id="AddToCart" class="btn {{ btn_class }}{% if section.settings.enable_payment_button %} btn--secondary{% endif %}">
                 <span id="AddToCartText">{{ 'products.product.add_to_cart' | t }}</span>
               </button>
+<!-- bold-ro-liquid --><div class="bold_add_to_orders" style="display: inline-block;"></div><!-- bold-ro-liquid -->
             </div>
             {% if section.settings.enable_payment_button %}
               {{ form | payment_button }}
             {% endif %}
           {% endform %}
-
+</div>
           {% if section.settings.social_sharing %}
             <hr class="hr--clear hr--small">
             <h2 class="h4">{{ 'products.general.share_title' | t }}</h2>
@@ -257,7 +264,7 @@
 
 {% unless product == empty %}
   <script type="application/json" id="ProductJson-{{ section.id }}">
-    {{ product | json }}
+    {%- include 'bold-product', output: 'json' -%}
   </script>
 {% endunless %}
 

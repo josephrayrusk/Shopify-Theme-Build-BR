@@ -2990,7 +2990,7 @@ hr {
   width: 40%
 }
 .cart-6 {
-  width: 40%
+  width: 60%
 }
 .lightbox-thumb {
   width: 40%;
@@ -3119,4 +3119,43 @@ justify-content: center;
 }
 .collect-4 {
   background: url('https://cdn.shopify.com/s/files/1/2013/2883/files/Block_1.svg?8602327757820997870');
+}
+
+.coffee-review-badge {
+  position: absolute;
+  width: 23% !important;
+  right: 0;
+}
+.p_coffee-review-badge {
+  position: absolute;
+  width: 10vw !important;
+  margin-left: 5vw;
+  @include at-query ($max, $medium) {
+    width: 15vw !important;
+    margin-left: 0px;
+  }
+}
+.location-section {
+  width: 100%;
+  height: 400px;
+  margin-bottom: -87px;
+  display: flex;
+  text-align: center;
+  border-bottom: 3px solid $hoverColor;
+  transition: all .2s ease-in-out;
+  background-image: url('https://cdn.shopify.com/s/files/1/2013/2883/files/Location_Image.png?6416523161349856454');
+  background-size: cover;
+  background-position: center;
+  h3 {
+    background: #FFFFFF;
+    margin: auto;
+    padding: 20px 30px;
+    color: $hoverColor;
+    text-transform: uppercase;
+    margin: 10px;
+    &:Hover {
+        background: $hoverColor;
+        color: #ffffff;
+    }
+  }
 }

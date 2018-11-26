@@ -1,3 +1,4 @@
+{%- include 'bold-cart' -%}
 {% comment %}
 
   This is your /cart template.
@@ -36,6 +37,7 @@
         Loop through products in the cart
       {% endcomment %}
       {% for item in cart.items %}
+{%- include 'bold-cart-item' with item -%}
 {%- include 'bold-options-hybrid-cart-item' with item -%}
         <div class="cart__row">
           <div class="grid--full cart__row--table-large">
@@ -78,6 +80,7 @@
                   {% unless item.variant.title contains 'Default' %}
                     <br>
                     <small>{{ item.variant.title }}</small>
+{{ bold_recurring_desc }}
                   {% endunless %}
 
                   {% comment %}
@@ -88,7 +91,9 @@
                   {% endcomment %}
                   {% assign propertySize = item.properties | size %}
                   <span class="Bold-theme-hook-DO-NOT-DELETE bold_cart_item_properties" style="display:none !important;"></span>{% if propertySize > 0 %}
-                    {% for p in item.properties %}
+
+{%- comment -%}
+{% for p in item.properties %}
 				{%- if p.first.first == '_' -%}{%- continue -%}{%- endif -%}
                       {% assign first_character_in_key = p.first | truncate: 1, '' %}
                       {% unless p.last == blank or first_character_in_key == '_' %}
@@ -106,6 +111,8 @@
 
                       {% endunless %}
                     {% endfor %}
+{%- endcomment -%}
+{{ bold_item_properties }}
                   {% endif %}
 
                   <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="cart__remove">
@@ -121,7 +128,7 @@
 
                 <div class="grid__item one-third">
                   <span class="cart__mini-labels">{{ 'cart.label.price' | t }}</span>
-                  <span class="h5"><span class="Bold-theme-hook-DO-NOT-DELETE bold_cart_item_price" style="display:none !important;"></span>{{ item.price | money }}</span>
+                  <span class="h5"><span class="Bold-theme-hook-DO-NOT-DELETE bold_cart_item_price" style="display:none !important;"></span>{{ bold_item_price | money }}</span>
                 </div>
 
                 <div class="grid__item one-third text-center">
@@ -132,12 +139,12 @@
                 <div class="grid__item one-third text-right">
                   <span class="cart__mini-labels">{{ 'cart.label.total' | t }}</span>
                   <span class="h5">
-                    {% if item.original_line_price != item.line_price %}
+                    {% if item.original_line_price != bold_item_line_price %}
                       <small class="cart-item__original-price"><s>{{ item.original_line_price | money }}</s></small>
                     {% endif %}
-                    <span class="Bold-theme-hook-DO-NOT-DELETE bold_cart_item_total" style="display:none !important;"></span>{{ item.line_price | money }}
+                    <span class="Bold-theme-hook-DO-NOT-DELETE bold_cart_item_total" style="display:none !important;"></span>{{ bold_item_line_price | money }}
                   </span>
-                  {% if item.original_line_price != item.line_price %}
+                  {% if item.original_line_price != bold_item_line_price %}
                     {% for discount in item.discounts %}
                       <small class="cart-item__discount">
                         {{ discount.title }}
@@ -175,7 +182,7 @@
           <div class="grid__item text-right{% if section.settings.cart_notes_enable %} post-large--seven-twelfths{% endif %}">
             <p class="cart__subtotal">
               <span class="cart__subtotal-title">{{ 'cart.general.subtotal' | t }}</span>
-              <span class="h5 cart__subtotal-price"><span class="Bold-theme-hook-DO-NOT-DELETE bold_cart_total" style="display:none !important;"></span>{{ cart.total_price | money }}</span>
+              <span class="h5 cart__subtotal-price"><span class="Bold-theme-hook-DO-NOT-DELETE bold_cart_total" style="display:none !important;"></span>{{ bold_cart_total_price | money }}</span>
               {% if cart.total_discounts > 0 %}
                 {% assign savings = cart.total_discounts | money %}
                 <small class="cart-subtotal__savings">{{ 'cart.general.savings_html' | t: price: savings }}</small>
@@ -202,9 +209,10 @@
             <a class="btn btn--secondary" href="/collections/all">{{ 'cart.general.continue_shopping' | t }}</a>
 
             <button type="submit" name="update" class="btn btn--secondary update-cart">{{ 'cart.general.update' | t }}</button>
-            <button type="submit" name="checkout" class="btn">{{ 'cart.general.checkout' | t }}</button>
+            {{ bold_ro_cart }}
+<button type="submit" name="checkout" class="btn">{{ 'cart.general.checkout' | t }}</button>
 
-            {% if additional_checkout_buttons %}
+            {% if show_paypal and additional_checkout_buttons %}
               <div class="cart__additional_checkout">{{ content_for_additional_checkout_buttons }}</div>
             {% endif %}
           </div>
@@ -220,12 +228,14 @@
     {% comment %}
       The cart is empty
     {% endcomment %}
-    <h2>{{ 'cart.general.title' | t }}</h2>
-    <p class="cart--empty-message">{{ 'cart.general.empty' | t }}</p>
-    <div class="cart--cookie-message">
-      <p>{{ 'cart.general.cookies_required' | t }}</p>
+    <div class="text-center">
+      <h2>{{ 'cart.general.title' | t }}</h2>
+      <p class="cart--empty-message">{{ 'cart.general.empty' | t }}</p>
+      <div class="cart--cookie-message">
+        <p>{{ 'cart.general.cookies_required' | t }}</p>
+      </div>
+      <p class="cart__continue-btn">{{ 'cart.general.continue_browsing_html' | t }}</p>
     </div>
-    <p class="cart__continue-btn">{{ 'cart.general.continue_browsing_html' | t }}</p>
   {% endif %}
 </div>
 
