@@ -74,6 +74,9 @@
 
   <!-- Header hook for plugins ================================================== -->
   {{ content_for_header }}
+{%- include 'bold-options-hybrid-fix' -%}
+{%- include 'bold-common' -%}
+{%- include 'bold-product' with product, hide_action: 'header' -%}
 
   {% include 'oldIE-js' %}
 

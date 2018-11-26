@@ -12,14 +12,27 @@
     "color_body_text": "#000000",
     "color_footer_text": "#000000",
     "color_footer_social_link": "#59756f",
-    "type_base_family": "pt_serif_n4",
+    "type_base_family": "gill_sans_nova_n3",
     "type_base_size": "17px",
-    "type_header_family": "source_sans_pro_n7",
+    "type_header_family": "open_sans_n8",
     "type_header_size": "32px",
-    "type_accent_family": "source_sans_pro_n7",
+    "type_accent_family": "gill_sans_nova_n4",
     "type_accent_size": "16px",
     "type_accent_transform": false,
     "type_accent_spacing": false,
+    "favicon": "",
+    "share_image": "",
+    "social_twitter_link": "https:\/\/twitter.com\/birdrockcoffee",
+    "social_facebook_link": "https:\/\/www.facebook.com\/birdrockcoffeeroasters\/",
+    "social_pinterest_link": "",
+    "social_google_plus_link": "",
+    "social_instagram_link": "https:\/\/www.instagram.com\/birdrockcoffeeroasters\/",
+    "social_snapchat_link": "",
+    "social_tumblr_link": "",
+    "social_youtube_link": "",
+    "social_vimeo_link": "",
+    "social_fancy_link": "",
+    "social_rss_link": "",
     "share_facebook": true,
     "share_twitter": true,
     "share_pinterest": true,
@@ -44,10 +57,15 @@
         "type": "header",
         "settings": {
           "header_search_enable": true,
+          "logo": "",
           "logo_max_width": "60",
+          "nav_menu": "main-menu",
           "nav_below_logo": true,
           "left_aligned_logo": false,
-          "show_header_lines": false
+          "show_header_lines": false,
+          "show_announcement": false,
+          "header_text": "Announce something here",
+          "announcement_link": ""
         }
       },
       "footer": {
@@ -62,6 +80,7 @@
           "footer-1": {
             "type": "menu",
             "settings": {
+              "menu_title": "Links",
               "menu": "footer"
             }
           },
@@ -71,7 +90,9 @@
           },
           "footer-3": {
             "type": "newsletter",
-            "settings": {}
+            "settings": {
+              "subtext": "<p>Sign up for the latest news, offers and styles<\/p>"
+            }
           }
         },
         "block_order": [
@@ -89,19 +110,31 @@
         "blocks": {
           "slider-0": {
             "type": "image",
-            "settings": {}
+            "settings": {
+              "image": "",
+              "link": ""
+            }
           },
           "slider-1": {
             "type": "image",
-            "settings": {}
+            "settings": {
+              "image": "",
+              "link": ""
+            }
           },
           "slider-2": {
             "type": "image",
-            "settings": {}
+            "settings": {
+              "image": "",
+              "link": ""
+            }
           },
           "slider-3": {
             "type": "image",
-            "settings": {}
+            "settings": {
+              "image": "",
+              "link": ""
+            }
           }
         },
         "block_order": [
@@ -131,7 +164,9 @@
           "vendor_enable": false,
           "show_sale_circle": false,
           "show_sold_out_circle": false,
-          "center_grid_link": false
+          "center_grid_link": false,
+          "enable_payment_button": false,
+          "add_to_cart_width": "small"
         }
       },
       "article-template": {
@@ -154,22 +189,31 @@
       },
       "collection-list": {
         "type": "collection-list",
+        "disabled": true,
         "blocks": {
           "collection-list-0": {
             "type": "collection",
-            "settings": {}
+            "settings": {
+              "collection": "single-origin"
+            }
           },
           "collection-list-1": {
             "type": "collection",
-            "settings": {}
+            "settings": {
+              "collection": "limited"
+            }
           },
           "collection-list-2": {
             "type": "collection",
-            "settings": {}
+            "settings": {
+              "collection": "blends"
+            }
           },
           "collection-list-3": {
             "type": "collection",
-            "settings": {}
+            "settings": {
+              "collection": "club-order"
+            }
           }
         },
         "block_order": [
@@ -179,7 +223,7 @@
           "collection-list-3"
         ],
         "settings": {
-          "title": "Collection list"
+          "title": "SHOP COFFEE"
         }
       },
       "collection-list-1": {
@@ -187,19 +231,27 @@
         "blocks": {
           "collection-list-1-0": {
             "type": "collection",
-            "settings": {}
+            "settings": {
+              "collection": ""
+            }
           },
           "collection-list-1-1": {
             "type": "collection",
-            "settings": {}
+            "settings": {
+              "collection": ""
+            }
           },
           "collection-list-1-2": {
             "type": "collection",
-            "settings": {}
+            "settings": {
+              "collection": ""
+            }
           },
           "collection-list-1-3": {
             "type": "collection",
-            "settings": {}
+            "settings": {
+              "collection": ""
+            }
           }
         },
         "block_order": [
@@ -215,15 +267,53 @@
       "newsletter": {
         "type": "newsletter",
         "settings": {
+          "heading": "Subscribe to our newsletter",
+          "subtext": "<p>Promotions, new products and sales. Directly to your inbox.<\/p>",
           "color_bg": "#eaebea"
+        }
+      },
+      "1542738647804": {
+        "type": "subscription_header",
+        "disabled": true,
+        "settings": {
+          "subscription_header": "Subscription Header"
+        }
+      },
+      "1542749563283": {
+        "type": "christmas-header",
+        "settings": {
+          "subscription_header": "Christmas Header"
+        }
+      },
+      "1542817339736": {
+        "type": "featured-collection",
+        "settings": {
+          "title": "OUR FAVORITES",
+          "featured_collection": "most-popular",
+          "num_per_row": 3,
+          "num_rows": 2,
+          "vendor_enable": false,
+          "show_sale_circle": false,
+          "show_sold_out_circle": false,
+          "center_grid_link": false
+        }
+      },
+      "1542820695792": {
+        "type": "collection-grid-image",
+        "settings": {
+          "Collection-Grid-Image": ""
         }
       }
     },
     "content_for_index": [
-      "slider",
+      "1542749563283",
+      "1542820695792",
+      "1542738647804",
       "collection-list",
+      "1542817339736",
       "collection-list-1",
-      "newsletter"
+      "newsletter",
+      "slider"
     ]
   },
   "presets": {

@@ -25,6 +25,7 @@
   {% endcase %}
   <div class="featured-section col-8" style="max-width: 1000px;">
     {% for product in collections[featured].products limit: 6 %}
+{%- include 'bold-product' with product, hide_action: 'skip' -%}
       {% assign featured = product %}
       <div class="{{grid_item_width}}" {{ block.shopify_attributes }}>
         {% include 'product-grid-item' %}

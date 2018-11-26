@@ -51,6 +51,7 @@
 
         <hr>
         {% for item in search.results %}
+{%- include 'bold-product' with item, hide_action: 'skip' -%}
           {% include 'search-result' %}
           <hr>
         {% endfor %}
@@ -59,6 +60,7 @@
 
         <div class="grid-uniform">
           {% for item in search.results %}
+{%- include 'bold-product' with item, hide_action: 'skip' -%}
             {% assign grid_item_width = 'post-large--one-quarter medium--one-third small--one-half' %}
             {% include 'search-result-grid' %}
           {% endfor %}

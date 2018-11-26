@@ -1,3 +1,4 @@
+{%- include 'bold-product' with product, hide_action: 'break', output: 'none' -%}
 <div itemscope itemtype="http://schema.org/Product" id="ProductSection" data-section-id="{{ section.id }}" data-section-type="product-template" data-image-zoom-type="{{ section.settings.product_image_zoom_type }}" data-related-enabled="{{ section.settings.product_related_enable }}" data-show-extra-tab="{{ section.settings.show_extra_tab }}" data-extra-tab-content="{{ section.settings.extra_tab_content }}" data-enable-history-state="true">
 
   {% case section.settings.add_to_cart_width %}

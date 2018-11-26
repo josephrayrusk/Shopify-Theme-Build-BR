@@ -31,6 +31,7 @@
     {%- assign product_width = 335 -%}
 
     {% for product in collection.products %}
+{%- include 'bold-product' with product, hide_action: 'skip' -%}
       {% assign featured = product %}
       <div class="grid__item {{grid_item_width}}">
         {% include 'product-grid-item' %}

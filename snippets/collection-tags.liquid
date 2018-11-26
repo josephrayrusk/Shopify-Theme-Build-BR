@@ -14,6 +14,7 @@
   <select name="BrowseBy" id="BrowseBy" class="btn--tertiary">
     <option value="{{ collection_url }}">{{ 'collections.sorting.all_tags' | t }}</option>
     {% for tag in collection.all_tags %}
+{%- if tag contains '_HIDDEN_PRODUCT' -%}{%- continue -%}{%- endif -%}
       {% capture new_url %}{{ tag | link_to_tag: tag | split: 'href="' | last | split: '"' | first }}{% endcapture %}
       <option{% if current_tags contains tag %} selected{% endif %} value="{{ new_url }}">{{ tag }}</option>
     {% endfor %}
