@@ -1469,7 +1469,7 @@ input[type="number"],
 input[type="tel"],
 textarea,
 select {
-  border: 2px solid $headerBackground;
+  border: 1px solid $headerBackground;
   border-radius: 5px;
   width: 100%;
   max-width: 100%;
@@ -2261,8 +2261,12 @@ label.error {
     }
   }
 .dot {
-    height: 150px;
-    width: 150px;
+    height: 9vw;
+    width: 9vw;
+    max-height: 150px;
+    max-width: 150px;
+    min-width: 120px;
+    min-height: 120px;
     background-color: $headerBackground;
     border-radius: 50%;
     z-index: 1000;
@@ -2398,7 +2402,7 @@ label.error {
 
   .icon-arrow-down {
     font-size: 0.7em;
-    color: $colorNavText;
+    color: $hoverColor;
 
     .site-nav--has-dropdown-grandchild & {
       display: inline-block;
@@ -2766,11 +2770,17 @@ input.cart__quantity-selector {
     top: 0;
     left: 0;
   }
-  @include at-query($min, $medium) {
+  @include at-query($min, $large) {
   object-fit: cover;
   object-position: 50% 0;
   width: 1000px;
   height: 75vh;
+}
+@include at-query($min, $medium) {
+object-fit: cover;
+object-position: 50% 0;
+width: 1000px;
+height: 75vh;
 }
 
   &.lazyload {
@@ -2812,7 +2822,7 @@ input.cart__quantity-selector {
 }
 
 .product-single__price {
-  color: $hoverColor;
+  color: $headerBackground;
   font-size: 1.4 * $baseFontSize;
   font-weight: $headerFontWeight;
 }
@@ -2885,6 +2895,12 @@ input.cart__quantity-selector {
     width: 70%;
     max-height: 50px;
     margin-top: 30px;
+    border-color: $colorPrimary;
+    color: $colorPrimary;
+    &:hover {
+      border-color: $hoverColor;
+      color: $hoverColor;
+    }
   }
   @include at-query($max, $medium) {
     width: 100%;
@@ -2897,7 +2913,7 @@ input.cart__quantity-selector {
     background-color: white;
     color: $headerBackground;
     border-radius: 5px;
-    border-width: 2px;
+    border-width: 1px;
     border-color: $headerBackground;
     min-height: 50px;
     margin-bottom: 5px;

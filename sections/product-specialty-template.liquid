@@ -236,10 +236,19 @@
 <div class="">
   {% include 'image-grid' %}
 </div>
-      <h4 class="metaInfo text-center" style="font-weight: 900;">More Information</h4>
-      <div class="product-description rte moreInfo full-width-about" itemprop="description">
-        {{ product.description }}
-      </div>
+{% if product.metafields.c_f.moreInfo %}
+  <div class="moreInformation">
+    <input id="toggle" type="checkbox">
+    <label class="metaInfo text-center" style="font-weight: 900;" for="toggle">Click for More Information</label>
+    <div class="full-width-about" id="expand">
+      <section>
+        <div class="product-description rte moreInfo" itemprop="description">
+          {{ product.description }}
+        </div>
+      </section>
+    </div>
+  </div>
+{% endif %}
     </div>
   </div>
     {% include 'related-products' %}

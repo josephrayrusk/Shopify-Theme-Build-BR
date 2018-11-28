@@ -91,11 +91,11 @@
           </a>
           </div>
 <!-- Navigation -->
-          <div class="col-4">
+          <div class="col-5">
             {% include 'site-nav' with linklists[section.settings.nav_menu] %}
           </div>
 <!-- Search and Cart -->
-          <div class="col-4 site-nav" style="text-align: right !important">
+          <div class="col-3 site-nav" style="text-align: right !important">
             {% if shop.customer_accounts_enabled %}
               <ul class="site-nav__link header-bar__module header-bar__module--list">
                 {% if customer %}
@@ -109,10 +109,12 @@
                   <li>
                     {{ 'layout.customer.log_in' | t | customer_login_link }}
                   </li>
+                  <!--
                   <li>{{ 'layout.customer.or' | t }}</li>
                   <li>
                     {{ 'layout.customer.create_account' | t | customer_register_link }}
                   </li>
+                -->
                 {% endif %}
               </ul>
             {% endif %}
@@ -133,9 +135,9 @@
             </div>
 
 
-                <div class="header-bar__module header-bar__search">
+                <!-- <div class="header-bar__module header-bar__search">
                   {% include 'search-bar' with 'header' %}
-                </div>
+                </div> -->
           </div>
         </div>
     </div>

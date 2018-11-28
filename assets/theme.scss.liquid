@@ -1205,6 +1205,7 @@ html, body { background: $colorBody; }
 .grid-link__title, .country_meta {
   font-family: itc-avant-garde-gothic-pro, sans-serif;
   font-style: normal;
+  text-transform: uppercase;
 }
 .grid-link__title {
   font-weight: 700;
@@ -2633,12 +2634,12 @@ input[type="submit"].password-page__signup-form__submit {
 }
 
 .country_meta {
-  font-weight: 300;
+  font-weight: 400;
   text-align: center;
   margin-block-end: 0px;
-  color: $headerBackground+E6;
+  color: #808080;
   font-size: 0.8em;
-  line-height: 1.05em;
+  line-height: 1.04em;
 }
 .tasting-meta {
   font-family: neue-haas-grotesk-display, sans-serif;
@@ -2748,13 +2749,14 @@ input[type="submit"].password-page__signup-form__submit {
   text-transform: uppercase;
   font-size: 7vw;
   line-height: 6vw;
-  margin-bottom: -10px;
+  margin-bottom: -11px;
+  margin-top: -7px;
 
   @include at-query($max, $medium) {
-    font-size: 19vw;
+    font-size: 10vw;
     margin-top: 5px;
     margin-bottom: 5px;
-    line-height: 15.5vw;
+    line-height: 7.5vw;
   }
 }
 
@@ -2767,26 +2769,29 @@ input[type="submit"].password-page__signup-form__submit {
   text-transform: lowercase;
 
   @include at-query($max, $medium) {
-    font-size: 30px;
+    font-size: 20px;
     margin-top: 5px;
     margin-bottom: 5px;
     line-height: 30px;
+    font-weight: 400;
   }
 }
 
 .coffeeOrigin {
   font-family: neue-haas-grotesk-display, sans-serif;
-  font-weight: 300;
+  font-weight: 400;
   font-style: normal;
   font-size: 2.3vw;
   margin: 0px;
   text-transform: uppercase;
+  color: $hoverColor;
 
   @include at-query($max, $medium) {
-    font-size: 30px;
+    font-size: 20px;
     margin-top: 5px;
     margin-bottom: 5px;
     line-height: 30px;
+    font-weight: 400;
   }
 }
 
@@ -2797,7 +2802,7 @@ input[type="submit"].password-page__signup-form__submit {
   font-size: 2vw;
 
   @include at-query($max, $medium) {
-    font-size: 40px;
+    font-size: 30px;
     margin-top: 10px;
     margin-bottom: 10px;
     line-height: 40px;
@@ -2933,6 +2938,9 @@ input[type="submit"].password-page__signup-form__submit {
 
 .coffee_graphics_col {
   width: 30%;
+  img {
+    width: 80%;
+  }
   @include at-query($max, $medium) {
     width: 50%;
   }
@@ -2992,12 +3000,12 @@ hr {
 .cart-6 {
   width: 60%
 }
-.lightbox-thumb {
-  width: 40%;
-  margin-left: auto;
-  margin-right: 10px;
-}
-.lightbox-thumb-specialty {
+//.fancybox {
+//  width: 40%;
+//  margin-left: auto;
+//  margin-right: 10px;
+//}
+.fancy-icons {
   text-align: center;
   img {
     width: 6%;
@@ -3055,7 +3063,8 @@ hr {
 }
 
 .christmas-image {
-  width: 70% !important;
+  width: 90% !important;
+  max-width: 650px;
   margin: auto;
   transition: all .2s ease-in-out;
   @include at-query ($max, $medium) {
@@ -3079,6 +3088,7 @@ display: flex;
 flex-wrap: wrap;
 margin: auto;
 justify-content: center;
+max-width: 1200px;
 }
 
 .col-grid-item{
@@ -3128,8 +3138,8 @@ justify-content: center;
 }
 .p_coffee-review-badge {
   position: absolute;
-  width: 10vw !important;
-  margin-left: 5vw;
+  width: 7vw !important;
+  margin-left: 4%;
   @include at-query ($max, $medium) {
     width: 15vw !important;
     margin-left: 0px;
@@ -3157,5 +3167,67 @@ justify-content: center;
         background: $hoverColor;
         color: #ffffff;
     }
+  }
+}
+.logo-section {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  flex-wrap: wrap;
+}
+.logo-item {
+  padding: 20px;
+  margin: auto;
+  align-items: center;
+  transition: ease-in-out 0.2s;
+  img {
+    width: 7vw;
+    min-width: 100px;
+  }
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+.moreInformation {
+  input {
+    display: none;
+    visibility: hidden;
+  }
+  label {
+    display: block;
+    padding: 0.5em;
+    text-align: center;
+    border-bottom: 1px solid #CCC;
+    color: #666;
+  }
+  label:hover {
+    color: $hoverColor;
+  }
+  label::before {
+    font-weight: bold;
+    font-size: 15px;
+    content: "+";
+    vertical-align: middle;
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    margin-right: 3px;
+    background: radial-gradient(ellipse at center, #CCC 50%, transparent 50%);
+  }
+  #expand {
+    height: auto;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s;
+    color: #FFF;
+  }
+  section {
+    padding: 0 20px;
+  }
+  #toggle:checked ~ #expand {
+    max-height: 1500px;
+  }
+  #toggle:checked ~ label::before {
+    content: "-";
   }
 }

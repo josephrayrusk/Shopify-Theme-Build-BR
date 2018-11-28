@@ -34,7 +34,8 @@
   <!-- CSS ================================================== -->
   {{ 'timber.scss.css' | asset_url | stylesheet_tag }}
   {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
-  {{ 'lightbox.css' | asset_url | stylesheet_tag }}
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.2/dist/jquery.fancybox.min.css" />
   <link rel="stylesheet" href="https://use.typekit.net/olz8wdr.css">
 
   <script>
@@ -82,6 +83,12 @@
   {% include 'oldIE-js' %}
 
   <script src="{{ 'jquery-2.2.3.min.js' | asset_url }}" ></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.2/dist/jquery.fancybox.min.js"></script>
+  <script type="text/javascript">$('[data-fancybox="gallery"]').fancybox({
+	// Options will go here
+});
+
+  </script>
 
   <!--[if (gt IE 9)|!(IE)]><!--><script src="{{ 'lazysizes.min.js' | asset_url }}" async="async"></script><!--<![endif]-->
   <!--[if lte IE 9]><script src="{{ 'lazysizes.min.js' | asset_url }}"></script><![endif]-->
@@ -116,7 +123,6 @@
   {% endif %}
 
   {{ 'theme.js' | asset_url | script_tag }}
-  {{ 'lightbox.js' | asset_url | script_tag }}
 
 </body>
 </html>

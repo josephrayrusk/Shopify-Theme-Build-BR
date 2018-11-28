@@ -23,7 +23,7 @@
       {% assign grid_item_width = 'featured_collection_grid' %}
       {%- assign product_width = 335 -%}
   {% endcase %}
-  <div class="featured-section col-8" style="max-width: 1000px;">
+  <div class="featured-section col-8">
     {% for product in collections[featured].products limit: 6 %}
 {%- include 'bold-product' with product, hide_action: 'skip' -%}
       {% assign featured = product %}
