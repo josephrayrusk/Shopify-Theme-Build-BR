@@ -3070,19 +3070,17 @@ $minSpecialtyHeight: 600px;
   @include at-query($max, $medium) {
     height: 100vh;
     max-height: 800px;
-    margin-top: -19px !important;
     background-size: cover;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-bottom: 20% !important;
   }
 }
 
 .subscribeButton {
   padding: 10px 10px;
     background-color: white;
-    border-width: 4px;
+    border-width: 2px;
     border-radius: 4px;
     border-color: #93696A;
     font-size: 2vw;
@@ -3092,13 +3090,14 @@ $minSpecialtyHeight: 600px;
     font-weight: normal;
     @include at-query($max, $medium) {
       font-size: 5vw;
-      border-color: #008c95;
+      border-color: $hoverColor;
       margin-left: auto;
       margin-right: auto;
       margin-bottom: 10px;
       display: flex;
       color: white;
       background-color: transparent;
+      border-radius: 1px;
     }
 }
 
@@ -3132,6 +3131,12 @@ $minSpecialtyHeight: 600px;
     font-size: 7vw;
     text-align: center;
     color: $hoverColor;
+    margin-bottom: 5px;
+  }
+}
+.bag-sub {
+  @include at-query($max, $medium) {
+    flex-direction: column;
   }
 }
 
