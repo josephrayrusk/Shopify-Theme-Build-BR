@@ -2756,7 +2756,7 @@ input[type="submit"].password-page__signup-form__submit {
     font-size: 10vw;
     margin-top: 5px;
     margin-bottom: 5px;
-    line-height: 7.5vw;
+    line-height: 8.5vw;
   }
 }
 
@@ -2815,7 +2815,6 @@ input[type="submit"].password-page__signup-form__submit {
   font-style: normal;
   font-size: 1.3vw;
   text-transform: capitalize;
-  margin-bottom: 0px;
 
   @include at-query($max, $medium) {
     font-size: 20px;
@@ -3201,8 +3200,15 @@ max-width: 1200px;
     display: block;
     padding: 0.5em;
     text-align: center;
-    border-bottom: 1px solid #CCC;
-    color: #666;
+    border: 2px solid #008c95;
+    color: #008c95;
+    border-radius: 5px;
+    padding: 10px;
+    margin: auto;
+    margin-bottom: 10px;
+    @include at-query ($min, $medium) {
+      max-width: 25vw;
+    }
   }
   label:hover {
     color: $hoverColor;
@@ -3211,12 +3217,13 @@ max-width: 1200px;
     font-weight: bold;
     font-size: 15px;
     content: "+";
+    color: #fff;
     vertical-align: middle;
     display: inline-block;
     width: 28px;
     height: 28px;
     margin-right: 3px;
-    background: radial-gradient(ellipse at center, #CCC 50%, transparent 50%);
+    background: radial-gradient(ellipse at center, $hoverColor 50%, transparent 50%);
   }
   #expand {
     height: auto;
