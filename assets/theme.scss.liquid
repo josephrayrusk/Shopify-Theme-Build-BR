@@ -249,7 +249,7 @@ $breakpoint-has-push:  ('medium', 'medium-down', 'large', 'post-large', 'wide');
 $breakpoint-has-pull:  ('medium', 'medium-down', 'large', 'post-large', 'wide');
 
 /*================ Color variables ================*/
-$colorPrimary: #008c95;
+$colorPrimary: #2EA0A8;
 $buttonColorPrimary: #fff;
 
 // Button colors
@@ -285,7 +285,7 @@ $colorBorder: {{ settings.color_borders }};
 $colorNavText: $colorPrimary;
 
 // Site Footer
-$colorFooterBg: #008c95;
+$colorFooterBg: $colorPrimary;
 $colorFooterText: {{ settings.color_footer_text }};
 $colorFooterSocialLink: {{ settings.color_footer_social_link }};
 
@@ -2654,6 +2654,9 @@ input[type="submit"].password-page__signup-form__submit {
 .logo_header {
   height: 150px;
   position: absolute;
+  display: flex;
+  justify-content: center;
+  padding: 0.7vw;
 }
 .header_wrapper {
   padding-left: 50px;
@@ -2815,6 +2818,8 @@ input[type="submit"].password-page__signup-form__submit {
   font-style: normal;
   font-size: 1.3vw;
   text-transform: capitalize;
+  line-height: 1.4;
+  margin: 0px;
 
   @include at-query($max, $medium) {
     font-size: 20px;
@@ -2984,13 +2989,15 @@ hr {
   padding: 4px 4px;
   align-self: center;
 }
+
+
 .login-page {
   position: relative;
   text-align: center;
 }
 .customer-order {
   a {
-    color: #008c95;
+    color: $colorPrimary;
     &:hover {
       color: $hoverColor
     }
@@ -3034,7 +3041,7 @@ hr {
 }
 .footer-button {
   color: white !important;
-  border-color: #008c95 !important;
+  border-color: $colorPrimary !important;
   text-transform: lowercase;
   background-color: transparent !important;
 }
@@ -3200,8 +3207,8 @@ max-width: 1200px;
     display: block;
     padding: 0.5em;
     text-align: center;
-    border: 2px solid #008c95;
-    color: #008c95;
+    border: 2px solid $colorPrimary;
+    color: $colorPrimary;
     border-radius: 5px;
     padding: 10px;
     margin: auto;
@@ -3215,7 +3222,7 @@ max-width: 1200px;
   }
   label::before {
     font-weight: bold;
-    font-size: 15px;
+    font-size: 18px;
     content: "+";
     color: #fff;
     vertical-align: middle;
@@ -3241,4 +3248,53 @@ max-width: 1200px;
   #toggle:checked ~ label::before {
     content: "-";
   }
+}
+
+.top-12year {
+  background-image: url('https://cdn.shopify.com/s/files/1/2013/2883/files/TOP_12_BACKGROUND.png?7253376727018172008');
+  background-position: center;
+  background-size: cover;
+  height: 80vh;
+  min-height: 800px;
+  .top-12_container {
+    margin: auto;
+    text-align: center;
+    color: $hoverColor;
+    h1 {
+      font-size: 12em;
+      line-height: .8em;
+      font-family: balboa-plus-fill, sans-serif;
+      font-weight: 400;
+      font-style: normal;
+      text-transform: uppercase;
+      @include at-query ($max, $medium) {
+        font-size: 5em;
+      }
+    }
+    h3 {
+      font-family: neue-haas-grotesk-display, sans-serif;
+      font-weight: 400;
+      font-style: normal;
+      font-size: 1.5em;
+      @include at-query ($max, $medium) {
+        line-height: .5em;
+      }
+      span {
+        font-size: 2.5em;
+        font-family: balboa-plus-fill, sans-serif;
+        font-weight: 400;
+        font-style: normal;
+      }
+    }
+    button {
+    background: #FFFFFF;
+    margin: auto;
+    padding: 11px 30px;
+    color: #edc038;
+    text-transform: uppercase;
+    margin: 10px;
+    border: none;
+    }
+  }
+
 }

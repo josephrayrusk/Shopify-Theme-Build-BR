@@ -251,6 +251,9 @@
 {% endif %}
     </div>
   </div>
+  {% if product.metafields.c_f.continent %}
+  <img class="full-width-img" src="{{ product.metafields.c_f.continent }}" alt="Coffee Location">
+  {% endif %}
     {% include 'related-products' %}
 
 </div>

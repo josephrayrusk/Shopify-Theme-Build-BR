@@ -12,7 +12,7 @@
 {% if product.images.size > 1 %}
 <div class="mobile-hide fancybox fancy-icons">
   {% for image in product.images  %}
-    <a data-fancybox="gallery"  href="{{image.src | product_img_url: '1000x' }}"> <img class="lazyload product-image_grid" src="{{image.src | product_img_url: '150x' }}" alt=""> </a>
+    <a data-fancybox="gallery"  href="{{image.src | product_img_url: '1000x' }}"><img class="lazyload product-image_grid" src="{{image.src | product_img_url: '150x' }}" alt=""></a>
   {% endfor %}
 </div>
 {% endif %}

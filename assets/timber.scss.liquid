@@ -279,7 +279,7 @@ $breakpoint-has-push:  ('medium', 'medium-down', 'large', 'post-large', 'wide');
 $breakpoint-has-pull:  ('medium', 'medium-down', 'large', 'post-large', 'wide');
 
 /*================ Color variables ================*/
-$colorPrimary: #008c95;
+$colorPrimary: #2EA0A8;
 $transparent: rgba(255, 255, 255, .1);
 $hoverColor: #EDC038;
 
@@ -314,7 +314,7 @@ $passwordBgImage: '{{ 'password-page-background.jpg' | asset_url }}';
 $colorBorder: {{ settings.color_borders }};
 
 // Nav and dropdown link background
-$colorNavText: #008c95;
+$colorNavText: $colorPrimary;
 
 // Site Footer
 $colorFooterBg: #444545;
@@ -449,7 +449,7 @@ body {
   margin-top: 47px;
   margin-bottom: 60px;
   a{
-    color: #008c95;
+    color: $colorPrimary;
     &:hover {
       color: $hoverColor;
     }
@@ -1146,7 +1146,7 @@ html input[disabled] {
 }
 .btn:active, .btn--secondary:active, .btn--tertiary:active, .shopify-payment-button .shopify-payment-button__button--unbranded:active, input[type="submit"]:active, .btn:focus, .btn--secondary:focus, .btn--tertiary:focus, .shopify-payment-button .shopify-payment-button__button--unbranded:focus, input[type="submit"]:focus {
   outline: none;
-  box-shadow: 0 0 2pt 1pt #008c95;
+  box-shadow: 0 0 2pt 1pt $colorPrimary;
 }
 .btn {
   display: inline-block;
@@ -1481,7 +1481,7 @@ select {
   &:focus {
 //    border: 2px solid transparentize($headerBackground, 0.8);
   outline: none;
-  box-shadow: 0 0 2pt 1pt #008c95;
+  box-shadow: 0 0 2pt 1pt $colorPrimary;
   }
 
   &[disabled],
@@ -1786,7 +1786,7 @@ label.error {
   .icon {
     font-size: 22px;
     line-height: 22px;
-    color: #008c95;
+    color: $colorPrimary;
     @include at-query ($min, $medium) {
       font-size: 4em;
     }
@@ -2294,6 +2294,7 @@ label.error {
   margin-left: -69px;
   margin-top: -10px;
   position: absolute;
+  padding: 5px;
 }
 .site-header__logo {
   text-align: center;
@@ -2575,7 +2576,7 @@ aside time em {
     border-top: 0 none;
   }
   a {
-    color: #008c95;
+    color: $colorPrimary;
   }
 
   .js-qty {
@@ -3025,7 +3026,7 @@ $minSpecialtyHeight: 600px;
 .specialtyBackground:before {
 
   content: ' ';
-  border-top: $specialtyHeight solid #008c95;
+  border-top: $specialtyHeight solid $colorPrimary;
   border-right: 33vw solid transparent;
   z-index: 0;
   width: 0;
@@ -3042,7 +3043,7 @@ $minSpecialtyHeight: 600px;
 }
 
 .blueBlackground {
-  background-color: #008c95;
+  background-color: $colorPrimary;
 }
 .search-background {
   background: rgba(0,0,0,0.6);
@@ -3157,7 +3158,6 @@ $minSpecialtyHeight: 600px;
 @media (min-width:700px) {
 .bag:hover {
   width: 25vw;
-  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
 }
 @keyframes shake {
   10%, 90% {
