@@ -1,18 +1,22 @@
 {% paginate customer.addresses by 5 %}
 
-  <div class="section-header section-header--large">
-    <h1 class="section-header__title section-header__title--left">{{ 'customer.account.title' | t }}</h1>
-    <div class="section-header__link--right">
+  <div class="text-center section-header--large account_address">
+    <h1 class="section-header__title">{{ 'customer.account.title' | t }}</h1>
+    <div class="">
       <a href="#" class="btn" onclick="Shopify.CustomerAddress.toggleNewForm(); return false;">{{ 'customer.addresses.add_new' | t }}</a>
     </div>
   </div>
 
-  <p><a href="/account">{{ 'customer.account.return' | t }}</a></p>
+  <h4 class="text-center"><a href="/account">{{ 'customer.account.return' | t }}</a></h4>
 
   {% comment %}
     Add address form, hidden by default
   {% endcomment %}
-
+  <div class="section">
+  <div class="col-2">
+  </div>
+  <div class="col"></div>
+<div class="col-6 text-center">
   {% form 'customer_address', customer.new_address %}
     <div id="AddAddress" {% unless form.errors %}style="display: none;"{% endunless %}>
         <h2>{{ 'customer.addresses.add_new' | t }}</h2>
@@ -74,10 +78,9 @@
 
         <p><input type="submit" class="btn" value="{{ 'customer.addresses.add' | t }}"></p>
         <p><a href="#" onclick="Shopify.CustomerAddress.toggleNewForm(); return false;">{{ 'customer.addresses.cancel' | t }}</a></p>
-        <hr>
+        <hr style="margin: auto;">
     </div>
   {% endform %}
-
   <h2>{{ 'customer.addresses.title' | t }}</h2>
 
   {% comment %}
@@ -95,7 +98,7 @@
     </p>
     {% form 'customer_address', address %}
       <div id="EditAddress_{{address.id}}" {% unless form.errors %}style="display:none;"{% endunless %}>
-        <hr>
+        <hr style="margin: auto;">
           <h4>{{ 'customer.addresses.edit_address' | t }}</h4>
           {{ form.errors | default_errors }}
           <div class="grid">
@@ -150,12 +153,16 @@
           <p><input type="submit" class="btn" value="{{ 'customer.addresses.update' | t }}"></p>
           <p><a href="#" onclick="Shopify.CustomerAddress.toggleForm({{form.id}}); return false;">{{ 'customer.addresses.cancel' | t }}</a></p>
 
-          <hr>
+          <hr style="margin: auto;">
         </div>
       {% endform %}
 
   {% endfor %}
-
+</div>
+<div class="col"></div>
+<div class="col-2">
+</div>
+</div>
   {% if paginate.pages > 1 %}
   <div class="text-center">
     {% include 'pagination-custom' %}
