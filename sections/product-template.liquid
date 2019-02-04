@@ -184,7 +184,7 @@
             {% endif %}
         </div>
         <div class="option-wrapper">
-          {% form 'product', product, class:productform_class %}
+          {% form 'product', product, class:productform_class %} 
             <select name="id" id="ProductSelect-{{ section.id }}" class="product-single__variants">
               {% for variant in product.variants %}
                 {% if variant.available %}

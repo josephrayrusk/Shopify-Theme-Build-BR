@@ -20,7 +20,7 @@
     "type_accent_size": "16px",
     "type_accent_transform": false,
     "type_accent_spacing": false,
-    "favicon": "",
+    "favicon": "shopify:\/\/shop_images\/FAVICON_b1ced072-1501-4aaf-bad2-ddf95c113611.png",
     "share_image": "",
     "social_twitter_link": "https:\/\/twitter.com\/birdrockcoffee",
     "social_facebook_link": "https:\/\/www.facebook.com\/birdrockcoffeeroasters\/",
@@ -37,6 +37,9 @@
     "share_twitter": true,
     "share_pinterest": true,
     "social_sharing_style": "normal",
+    "recurring-orders-loading": "Loading subscription info...",
+    "recurring-orders-inherit-classes": false,
+    "recurring-orders-additional-button-classes": "",
     "checkout_header_image": "",
     "checkout_logo_image": "",
     "checkout_logo_position": "left",
@@ -107,6 +110,7 @@
       },
       "slider": {
         "type": "slider",
+        "disabled": true,
         "blocks": {
           "slider-0": {
             "type": "image",
@@ -228,6 +232,7 @@
       },
       "collection-list-1": {
         "type": "collection-list",
+        "disabled": true,
         "blocks": {
           "collection-list-1-0": {
             "type": "collection",
@@ -266,6 +271,7 @@
       },
       "newsletter": {
         "type": "newsletter",
+        "disabled": true,
         "settings": {
           "heading": "Subscribe to our newsletter",
           "subtext": "<p>Promotions, new products and sales. Directly to your inbox.<\/p>",
@@ -289,7 +295,7 @@
         "type": "featured-collection",
         "settings": {
           "title": "OUR FAVORITES",
-          "featured_collection": "most-popular",
+          "featured_collection": "our-new-favorites",
           "num_per_row": 3,
           "num_rows": 2,
           "vendor_enable": false,
@@ -303,6 +309,70 @@
         "settings": {
           "Collection-Grid-Image": ""
         }
+      },
+      "1543263956524": {
+        "type": "location-finder",
+        "settings": {
+          "nearest_location": "Nearest Location"
+        }
+      },
+      "1543271905761": {
+        "type": "logo-list",
+        "blocks": {
+          "1543271905761-0": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Barista-Magazine-logo.jpg",
+              "link": "http:\/\/www.baristamagazine.com\/pts-bird-rock-owners-open-merger\/"
+            }
+          },
+          "1543271905761-1": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/wsj.png",
+              "link": "https:\/\/www.wsj.com\/articles\/coffee-disconnect-is-brewing-1438907318"
+            }
+          },
+          "1543271905761-2": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/zagat-logo.png",
+              "link": "https:\/\/www.zagat.com\/r\/bird-rock-coffee-roasters-san-diego"
+            }
+          },
+          "1543271905761-3": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/nyt.png",
+              "link": "http:\/\/www.nytimes.com\/2013\/04\/07\/travel\/36-hours-in-san-diego.html"
+            }
+          },
+          "1543272796833": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/unnamed.png",
+              "link": ""
+            }
+          },
+          "1543273006630": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/The_San_Diego_Union-Tribune__2012-08-13_.svg_760fdfa1-95d3-4e5a-baa9-ea60232b8029.png",
+              "link": "http:\/\/www.sandiegouniontribune.com\/search\/dispatcher.front?Query=bird+rock+coffee&target=all&spell=on"
+            }
+          }
+        },
+        "block_order": [
+          "1543271905761-0",
+          "1543271905761-1",
+          "1543271905761-2",
+          "1543271905761-3",
+          "1543272796833",
+          "1543273006630"
+        ],
+        "settings": {
+          "title": "Logo list"
+        }
       }
     },
     "content_for_index": [
@@ -311,6 +381,8 @@
       "1542738647804",
       "collection-list",
       "1542817339736",
+      "1543271905761",
+      "1543263956524",
       "collection-list-1",
       "newsletter",
       "slider"

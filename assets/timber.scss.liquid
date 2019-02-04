@@ -1186,6 +1186,7 @@ html input[disabled] {
 
   &[disabled],
   &.disabled {
+    display: none;
     cursor: default;
     color: $disabledBorder;
     background-color: $disabledGrey;
@@ -1215,6 +1216,7 @@ input.btn--secondary {
 
   &[disabled],
   &.disabled {
+    display: none;
     background-color: $disabledGrey;
     border-color: $disabledGrey;
     color: $disabledBorder;
@@ -2252,6 +2254,7 @@ label.error {
 /*================ Module | Site Header ================*/
 .site-header {
   background-color: $headerBackground;
+  z-index: 999;
 
   @include at-query ($min, $large) {
   //  padding: $gutter 0;
@@ -2356,7 +2359,6 @@ label.error {
   text-transform: uppercase;
   margin-top: 30px;
   margin-bottom: 5px;
-
   li {
     margin: 0;
     display: block;
@@ -3189,4 +3191,9 @@ $minSpecialtyHeight: 600px;
 }
 .flex {
   display: flex;
+}
+
+#spm_subscribe_out_of_stock {
+  margin-left: -5px;
+  width: 125% !important;
 }

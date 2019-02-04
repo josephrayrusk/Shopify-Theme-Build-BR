@@ -69,7 +69,7 @@
                 <div style="padding-top:{{ 1 | divided_by: image.aspect_ratio | times: 100}}%;">
                   <img id="{{ img_id }}"
                         class="product-single__image lazyload"
-                        {% if featured_image == image %}src="{{ image | img_url: '300x300' }}"{% endif %}
+                        {% if featured_image == image %}src="{{ image | img_url: '150x150' }}"{% endif %}
                         data-src="{{ img_url }}"
                         data-widths="[180, 370, 540, 740, 900, 1080, 1296, 1512, 1728, 2048]"
                         data-aspectratio="{{ image.aspect_ratio }}"

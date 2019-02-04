@@ -176,6 +176,32 @@
               {%- endif -%}
             </div>
           {%- endif -%}
+          <div class="desk-hide">
+            {% if product.metafields.c_f.roastDate %}
+              <h4 class="metaInfo"><span>roast date: </span>{{ product.metafields.c_f.roastDate }}</h4>
+            {% endif %}
+            {% if product.metafields.c_f.farm %}
+              <h4 class="metaInfo"><span>farm: </span>{{ product.metafields.c_f.farm }}</h4>
+            {% endif %}
+            {% if product.metafields.c_f.mill %}
+              <h4 class="metaInfo"><span>mill: </span>{{ product.metafields.c_f.mill }}</h4>
+            {% endif %}
+            {% if product.metafields.c_f.lot %}
+              <h4 class="metaInfo"><span>lot: </span>{{ product.metafields.c_f.lot }}</h4>
+            {% endif %}
+            {% if product.metafields.c_f.producer %}
+              <h4 class="metaInfo"><span>producer: </span>{{ product.metafields.c_f.producer }}</h4>
+            {% endif %}
+            {% if product.metafields.c_f.region %}
+              <h4 class="metaInfo"><span>region: </span>{{ product.metafields.c_f.region }}</h4>
+            {% endif %}
+            {% if product.metafields.c_f.process %}
+              <h4 class="metaInfo"><span>process: </span>{{ product.metafields.c_f.process }}</h4>
+            {% endif %}
+            {% if product.metafields.c_f.varietal %}
+              <h4 class="metaInfo"><span>varietal: </span>{{ product.metafields.c_f.varietal }}</h4>
+            {% endif %}
+          </div>
           <div class="option-wrapper">
           {% form 'product', product, class:productform_class %}
             <select name="id" id="ProductSelect-{{ section.id }}" class="product-single__variants">
@@ -208,7 +234,6 @@
               {{ form | payment_button }}
             {% endif %}
           {% endform %}
-          <h4>*IF YOUR ORDER CONTAINS OTHER NON-LIMITED COFFEE, THE ENTIRE ORDER WILL ROAST & SHIP TOGETHER ACCORDING TO THE ROAST DATE LISTED ABOVE.</h4>
 </div>
           {% if section.settings.social_sharing %}
             <hr class="hr--clear hr--small">
@@ -237,6 +262,7 @@
 <div class="">
   {% include 'image-grid' %}
 </div>
+      <h4 class="text-center">*IF YOUR ORDER CONTAINS OTHER NON-LIMITED COFFEE, THE ENTIRE ORDER WILL ROAST & SHIP TOGETHER ACCORDING TO THE ROAST DATE LISTED ABOVE.</h4>
 {% if product.metafields.c_f.moreInfo %}
   <div class="moreInformation">
     <input id="toggle" type="checkbox">

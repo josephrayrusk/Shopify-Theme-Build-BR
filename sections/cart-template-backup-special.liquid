@@ -76,9 +76,6 @@
                 <div class="grid__item cart-6">
                   <a href="{{ item.url }}" class="h5">
                     {{ item.product.title }}
-<span class="saso-cart-item-discount-notes" data-key="{{item.key}}"></span>
-<span class="saso-cart-item-upsell-notes" data-key="{{item.key}}"></span>
-                                
                   </a>
                   {% unless item.variant.title contains 'Default' %}
                     <br>
@@ -131,9 +128,7 @@
 
                 <div class="grid__item one-third">
                   <span class="cart__mini-labels">{{ 'cart.label.price' | t }}</span>
-                  <span class="h5"><span class="Bold-theme-hook-DO-NOT-DELETE bold_cart_item_price" style="display:none !important;"></span>
-<span class="saso-cart-item-price" data-key="{{item.key}}">{{ bold_item_price | money }}</span>
-</span>
+                  <span class="h5"><span class="Bold-theme-hook-DO-NOT-DELETE bold_cart_item_price" style="display:none !important;"></span>{{ bold_item_price | money }}</span>
                 </div>
 
                 <div class="grid__item one-third text-center">
@@ -187,10 +182,7 @@
           <div class="grid__item text-right{% if section.settings.cart_notes_enable %} post-large--seven-twelfths{% endif %}">
             <p class="cart__subtotal">
               <span class="cart__subtotal-title">{{ 'cart.general.subtotal' | t }}</span>
-              <span class="h5 cart__subtotal-price"><span class="Bold-theme-hook-DO-NOT-DELETE bold_cart_total" style="display:none !important;"></span>
-<span class="saso-cart-original-total">{{ bold_cart_total_price | money }}</span>
-<span class="saso-cart-total"></span>
-</span>
+              <span class="h5 cart__subtotal-price"><span class="Bold-theme-hook-DO-NOT-DELETE bold_cart_total" style="display:none !important;"></span>{{ bold_cart_total_price | money }}</span>
               {% if cart.total_discounts > 0 %}
                 {% assign savings = cart.total_discounts | money %}
                 <small class="cart-subtotal__savings">{{ 'cart.general.savings_html' | t: price: savings }}</small>
